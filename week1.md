@@ -15,8 +15,11 @@ E-mail gönderildikten sonra, e-mail içerisindeki Join yazısına tıklayın
 ![r1](https://user-images.githubusercontent.com/58172827/170823241-fda73d7a-2931-4c3e-be98-a79ebfb33b65.jpg)
 
 1. Linke tıkladıktan sonra Github sitesine yönlendirileceksiniz. Uygulamayı Mobil mağzanızdan(App Store, Play Store) kurmanız durumunda uygulama üzerinden tarayıcıda giriş yapmadan kabul edebilirsiniz.
+
 ![r2](https://user-images.githubusercontent.com/58172827/170823272-d3ceb3d1-6e98-4853-9b70-08e76c7a8aaf.jpg)
-    Not: Organizasyona girseniz bile profilinizde organizasyonda olduğunuzu belirtecek resmi siz hariç kimse göremez(başka hesaplardan).
+
+Not: Organizasyona girseniz bile profilinizde organizasyonda olduğunuzu belirtecek resmi siz hariç kimse göremez(başka hesaplardan).
+
 ![r3](https://user-images.githubusercontent.com/58172827/170823309-15e0926d-8565-4792-9efa-e9ca3180eb8c.png)
 
 Şekildeki organizasyon resimlerinin gözükmesini isterseniz, github organizasyon>peoples sekmesinden isminizin yanındaki private yazan yeri public yapmalısınız.
