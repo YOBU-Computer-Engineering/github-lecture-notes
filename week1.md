@@ -15,16 +15,16 @@ E-mail gönderildikten sonra, e-mail içerisindeki Join yazısına tıklayın
 ![r1](https://user-images.githubusercontent.com/58172827/170823241-fda73d7a-2931-4c3e-be98-a79ebfb33b65.jpg)
 
 1. Linke tıkladıktan sonra Github sitesine yönlendirileceksiniz. Uygulamayı Mobil mağzanızdan(App Store, Play Store) kurmanız durumunda uygulama üzerinden tarayıcıda giriş yapmadan kabul edebilirsiniz.
-    ![r2](https://user-images.githubusercontent.com/58172827/170823272-d3ceb3d1-6e98-4853-9b70-08e76c7a8aaf.jpg)
+![r2](https://user-images.githubusercontent.com/58172827/170823272-d3ceb3d1-6e98-4853-9b70-08e76c7a8aaf.jpg)
     Not: Organizasyona girseniz bile profilinizde organizasyonda olduğunuzu belirtecek resmi siz hariç kimse göremez(başka hesaplardan).
-    ![r3](https://user-images.githubusercontent.com/58172827/170823309-15e0926d-8565-4792-9efa-e9ca3180eb8c.png)
+![r3](https://user-images.githubusercontent.com/58172827/170823309-15e0926d-8565-4792-9efa-e9ca3180eb8c.png)
 
 Şekildeki organizasyon resimlerinin gözükmesini isterseniz, github organizasyon>peoples sekmesinden isminizin yanındaki private yazan yeri public yapmalısınız.
 ![r4](https://user-images.githubusercontent.com/58172827/170823339-6cd86461-03da-4b19-a77b-4a190b032c43.png)
 
 **2. Git nedir?**
 
-Git, küçükten çok büyük projelere kadar her kodu hızlı ve verimli bir şekilde ele almak için tasarlanmış ücretsiz bir sürüm kontrol sistemidir. Farklı sürüm kontrol sistemleri(bunlara VCS denir) de vardır fakat Git oldukça kullanışlı ve performanslı çalışan bir VCS`dir. Git'i öğrenmesi kolaydır. 
+Git, küçükten çok büyük projelere kadar her kodu hızlı ve verimli bir şekilde ele almak için tasarlanmış ücretsiz bir sürüm kontrol sistemidir. Farklı sürüm kontrol sistemleri(bunlara VCS denir) de vardır fakat Git oldukça kullanışlı ve performanslı çalışan bir VCS'dir. Git'i öğrenmesi kolaydır. 
 
 **2.1. Git ve GitHubda asıl yapmak istediğimiz şey ne?**
 
