@@ -1,2 +1,2 @@
 # GitHub-Lecture-Notes
-GitHub lecture notes shared from GitHub-YOBU-CE Whatsapp Group
+GitHub Turkish lecture notes shared from GitHub-YOBU-CE Whatsapp Group.
