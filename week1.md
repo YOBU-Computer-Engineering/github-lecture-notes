@@ -1,3 +1,8 @@
+1.	Hafta
+•	Git nedir? Github nedir? Ne amaçla kullanılır, 
+•	Github üyeliği oluşturma ve organizasyona katılma
+
+
 **1.Github üyeliği oluşturma ve organizasyona katılma:**
 
 **Github Kayıt olma**
