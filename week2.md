@@ -8,7 +8,7 @@
 
 **4.     Kendi kodumu Githuba nasıl eklerim ve nasıl çalışırım?**
 
-**5.     UYGULAMA: Kişisel Github profili üzerinde repository oluşturma ve commit. **
+**5.     UYGULAMA: Kişisel Github profili üzerinde repository oluşturma ve commit.**
 
 ## 2. Hafta Giriş
 Arkadaşlar merhabalar. Bundan sonraki örneklerde kavram yanılgılarını en aza indirgemek için Git yerine Github kullanılacaktır. Kavram yanılgılarından korkulmamalıdır. Pratik yaptıkça kavramlar oturacaktır. İkinci hafta derslerimizi anlattıktan sonra tüm kavramları anlatacağımız bir video çekeceğiz ve Github öğrenmek isteyen herkesin Github üzerinde uygulama yaptığından emin olacağız.
