@@ -1,15 +1,17 @@
 Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 2023. 
- [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma
- [^2]. Github Profilinizi Zenginleştirin
- [^3]. CENG Öğrencilerinin Keyif Alacağı Video
- [^4]. GitHub Copilot'un Sesli Komut İle Kod Yazma Özelliği "Hey Github"
- [^5]. JavaScript'te Set Metodu ile Tekrar Eden Elemanları Temizleme
- [^6]. Turnary Operator ile Basit If-Else Yapısı
- [^7]. VS Code'da Tıklanan Tuşları Gösterme
- [^8]. JS bilenler için TypeScript'i kavramanızı kolaylaştıracak bir doküman
- [^9]. SpaceX Roketlerinde Kullanılan Yazılım Dilleri
- [^10]. ChatGPT: Google Gibi Ama Değil
- [^11]. VS Code Extension Önerisi: TODO Highlight
+`
+      1. VS Code ile Matematiksel İşlemleri Hızlıca Yapma
+      2. Github Profilinizi Zenginleştirin
+      3. CENG Öğrencilerinin Keyif Alacağı Video
+      4. GitHub Copilot'un Sesli Komut İle Kod Yazma Özelliği "Hey Github"
+      5. JavaScript'te Set Metodu ile Tekrar Eden Elemanları Temizleme
+      6. Turnary Operator ile Basit If-Else Yapısı
+      7. VS Code'da Tıklanan Tuşları Gösterme
+      8. JS bilenler için TypeScript'i kavramanızı kolaylaştıracak bir doküman
+      9. SpaceX Roketlerinde Kullanılan Yazılım Dilleri
+      10. ChatGPT: Google Gibi Ama Değil
+      11. VS Code Extension Önerisi: TODO Highlight
+`
  
 ---
 
