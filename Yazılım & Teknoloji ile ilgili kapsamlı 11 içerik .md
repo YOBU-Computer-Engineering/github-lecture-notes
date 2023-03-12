@@ -1,16 +1,15 @@
 # Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 2023. 
-<br>
-      [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma<br>
-      [^2]. Github Profilinizi Zenginleştirin<br>
-      [^3]. CENG Öğrencilerinin Keyif Alacağı Video<br>
-      [^4]. GitHub Copilot'un Sesli Komut İle Kod Yazma Özelliği "Hey Github"<br>
-      [^5]. JavaScript'te Set Metodu ile Tekrar Eden Elemanları Temizleme<br>
-      [^6]. Turnary Operator ile Basit If-Else Yapısı<br>
-      [^7]. VS Code'da Tıklanan Tuşları Gösterme<br>
-      [^8]. JS bilenler için TypeScript'i kavramanızı kolaylaştıracak bir doküman<br>
-      [^9]. SpaceX Roketlerinde Kullanılan Yazılım Dilleri<br>
-      [^10]. ChatGPT: Google Gibi Ama Değil<br>
-      [^11]. VS Code Extension Önerisi: TODO Highlight<br>
+ [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma<br>
+ [^2]. Github Profilinizi Zenginleştirin<br>
+ [^3]. CENG Öğrencilerinin Keyif Alacağı Video<br>
+ [^4]. GitHub Copilot'un Sesli Komut İle Kod Yazma Özelliği "Hey Github"<br>
+ [^5]. JavaScript'te Set Metodu ile Tekrar Eden Elemanları Temizleme<br>
+ [^6]. Turnary Operator ile Basit If-Else Yapısı<br>
+ [^7]. VS Code'da Tıklanan Tuşları Gösterme<br>
+ [^8]. JS bilenler için TypeScript'i kavramanızı kolaylaştıracak bir doküman<br>
+ [^9]. SpaceX Roketlerinde Kullanılan Yazılım Dilleri<br>
+ [^10]. ChatGPT: Google Gibi Ama Değil<br>
+ [^11]. VS Code Extension Önerisi: TODO Highlight<br>
  
 
 [^1]: Matamatiksel işlemleri hızlıca yapma: VS Code'a built-in(kurarken içinde olduğunu belirten bir terim) gelen emmet eklentisiyle hızlı bir şekilde hesap makinesini açmadan matamatiksel ifadenin sonucunu görebilirsin. Bunun için herhangi bir dosya içinde ctrl+shift+p yaparak emmet evaluate math expression yazıyoruz. Entera basınca hesaplama otomatik bir şekilde gerçekleşiyor ve işlemin sonucunu görüyoruz.
