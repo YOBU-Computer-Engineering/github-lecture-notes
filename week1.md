@@ -1,7 +1,6 @@
-1.	Hafta
-•	Git nedir? Github nedir? Ne amaçla kullanılır, 
-•	Github üyeliği oluşturma ve organizasyona katılma
-
+1. Hafta
+   • Git nedir? Github nedir? Ne amaçla kullanılır,
+   • Github üyeliği oluşturma ve organizasyona katılma
 
 **1.Github üyeliği oluşturma ve organizasyona katılma:**
 
@@ -32,17 +31,15 @@ Not: Organizasyona girseniz bile profilinizde organizasyonda olduğunuzu belirte
 
 **2. Git nedir?**
 
-Git, küçükten çok büyük projelere kadar her kodu hızlı ve verimli bir şekilde ele almak için tasarlanmış ücretsiz bir sürüm kontrol sistemidir. Farklı sürüm kontrol sistemleri(bunlara VCS denir) de vardır fakat Git oldukça kullanışlı ve performanslı çalışan bir VCS'dir. Git'i öğrenmesi kolaydır. 
+Git, küçükten çok büyük projelere kadar her kodu hızlı ve verimli bir şekilde ele almak için tasarlanmış ücretsiz bir sürüm kontrol sistemidir. Farklı sürüm kontrol sistemleri(bunlara VCS denir) de vardır fakat Git oldukça kullanışlı ve performanslı çalışan bir VCS'dir. Git'i öğrenmesi kolaydır.
 
 **2.1. Git ve GitHubda asıl yapmak istediğimiz şey ne?**
 
 Kodları kontrol etmek.. Bir geliştiricinin geliştirdiği kodlarda genellikle “keşke önceki yaptığım duruma geri dönebileydim” ifadesi sık sık kullanılır. Ve Git, sizin önceden yazdığınız kodların tam o anki anına gitmenizi sağlar. Böylece korkulu geliştirme süreci sorularından “Flash diske yedekleme yaptım mı?, acaba ctrl z mi yaptım yoksa ctrl shift z mi yaptım?” kurtulmuş olunur. Bunun yerine “Önceden şöyle bir kod yazmıştım acaba bunu yeni koduma eklesem nasıl olur? gibi daha verimli sorular sormaya başlanılır.
 
-
-
 Örnek git kullanımı:
 
-Ali.txt isminde metin dosyası (.txt) olsun. Bu dosyada Ali'nin özgeçmişi anlatan toplam 5 satır metin olsun. Eğer Ali 3. Satırı silerse ve Git'ten yardım alıp değişiklikleri gör derse: Git, toplam 5 satır olan metnin 4 satır kaldığını ve 3. Satırın yok olduğunu söyleyecektir. Git'ten bu durumu kaydetmesi istenirse, git bu olayı kaydeder. Buna A noktası diyelim. Sonrasında buna benzer değişiklikler yapılırsa B diyelim. Git, bu A ve B gibi durumlar arasında geçiş yapılabilmesini, yapılan değişikliklerin algılanmasını ve yapılan değişikliklerin yönetilmesini kolaylaştırır. Metin dosyası örneği, kod dosyası örneği olarak anlaşılabilir. Hiçbir farkı yoktur. 
+Ali.txt isminde metin dosyası (.txt) olsun. Bu dosyada Ali'nin özgeçmişi anlatan toplam 5 satır metin olsun. Eğer Ali 3. Satırı silerse ve Git'ten yardım alıp değişiklikleri gör derse: Git, toplam 5 satır olan metnin 4 satır kaldığını ve 3. Satırın yok olduğunu söyleyecektir. Git'ten bu durumu kaydetmesi istenirse, git bu olayı kaydeder. Buna A noktası diyelim. Sonrasında buna benzer değişiklikler yapılırsa B diyelim. Git, bu A ve B gibi durumlar arasında geçiş yapılabilmesini, yapılan değişikliklerin algılanmasını ve yapılan değişikliklerin yönetilmesini kolaylaştırır. Metin dosyası örneği, kod dosyası örneği olarak anlaşılabilir. Hiçbir farkı yoktur.
 
 Yukarıdaki örnekte A noktasını kaydetmek için git kodları aşağıdadır. Genel olarak işleyiş bu şekilde. Bu Kodları ezberlemenize gerek yok. Mantığını anlamanız yeterli. Github kullanırken bu kodlarla uğraşmayacağız. Github bu adımları kolaylaştırır.:
 
@@ -50,29 +47,23 @@ Yukarıdaki örnekte A noktasını kaydetmek için git kodları aşağıdadır. 
 
 Yukarıdaki Ali.txt örneği için Ali.txt dosyası oluştur ve 5 satır ekledikten sonra, Git komutları(cmd`ye yazılır):
 
- 
+_git init_ //Git başlatmak için kullanılır.
 
-*git init* //Git başlatmak için kullanılır.
-
-*git add* . //klasör içerisindeki tüm dosyaların hareketlerini izlemeye başlar. Ve hepsinde yapılan değişiklikleri algılar
-
- 
+_git add_ . //klasör içerisindeki tüm dosyaların hareketlerini izlemeye başlar. Ve hepsinde yapılan değişiklikleri algılar
 
 Burada Ali.txt`de 3. satırı sil :
 
- 
-
-*git diff* //dosyalardaki değişiklikleri algılar. Ve ekteki resimdeki sonucu verir.
+_git diff_ //dosyalardaki değişiklikleri algılar. Ve ekteki resimdeki sonucu verir.
 
 ![r5](https://user-images.githubusercontent.com/58172827/170823388-24d2f26d-f57a-4014-b839-a799a7290589.png)
 
-*git commit -m “ilk commit”* //değişikliklerin yapıldığı anı tarihe kaydet. Buna A noktası diyebiliriz. 
+_git commit -m “ilk commit”_ //değişikliklerin yapıldığı anı tarihe kaydet. Buna A noktası diyebiliriz.
 
-**3. Github nedir?** 
+**3. Github nedir?**
 
 - Hub, sosyal ağ anlamı taşır. GitHub ise yazılımların sosyal ağıdır. Sosyal bir ortam sunmasıyla birlikte Git altyapısını kullanarak kodları yönetmemizi sağlar.
 
-- Github, git komutlarını yazmadan, bir arayüz vasıtasıyla Git işlemleri yapılmasını kolaylaştırır. 
+- Github, git komutlarını yazmadan, bir arayüz vasıtasıyla Git işlemleri yapılmasını kolaylaştırır.
 
 - Git altyapısını kullanarak projede yapılan değişiklikleri komut satırı(cmd) ekranından görmek yerine, kullanıcıların rahatça anlayabileceği ekranlarda yani UI(user interface/grafiksel kullanıcı arayüzü)`da izlemesine olanak tanır.
 
