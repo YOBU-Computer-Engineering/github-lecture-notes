@@ -1,4 +1,4 @@
-# Kendisini geliştirmek isteyen yazılımcılar için birbirinden değerli 11 farklı içerik 2023. 
+# Yazılımcılar için birbirinden değerli 11 farklı bilgi, öneri, inceleme 2023. 
  [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma<br>
  [^2]. Github Profilinizi Zenginleştirin<br>
  [^3]. CENG Öğrencilerinin Keyif Alacağı Video<br>
