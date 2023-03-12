@@ -10,6 +10,8 @@ Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 
  9. SpaceX Roketlerinde Kullanılan Yazılım Dilleri
  10. ChatGPT: Google Gibi Ama Değil
  11. VS Code Extension Önerisi: TODO Highlight
+ 
+---
 
 1. Matamatiksel işlemleri hızlıca yapma: VS Code'a built-in(kurarken içinde olduğunu belirten bir terim) gelen emmet eklentisiyle hızlı bir şekilde hesap makinesini açmadan matamatiksel ifadenin sonucunu görebilirsin. Bunun için herhangi bir dosya içinde ctrl+shift+p yaparak emmet evaluate math expression yazıyoruz. Entera basınca hesaplama otomatik bir şekilde gerçekleşiyor ve işlemin sonucunu görüyoruz.
    Link:
