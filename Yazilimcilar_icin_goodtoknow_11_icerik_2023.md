@@ -72,3 +72,7 @@ Yapay zekaya herhangi bir konuda, arka planda portrenizi çizdirmek ister misini
 Önemli not: Başlamadan önce 20-30 adet size ait yüz hatlarınızın belirgin olduğu fotoğrafları bulundurun.
 Anlatım video linki: 
 https://www.youtube.com/watch?v=saBo8dDEFAo 
+Örnek :) <br>
+![1)](https://user-images.githubusercontent.com/43602725/224567355-42285b90-63e0-4f83-b1f7-000ac652d5c0.png)
+![xxx](https://user-images.githubusercontent.com/43602725/224567362-40dae0b1-805f-4dd0-a197-cc43e927d3a2.png)
+
