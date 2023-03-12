@@ -62,7 +62,7 @@ ChatGPT, OpenAI tarafından geliştirilen büyük dil modelidir. Google gibi sor
     VS Code kullanıcıları için TODO Highlight adlı bir eklenti mevcut. Eklentiyi kurduktan sonra yorum satırlarında "FIXME:" veya "TODO:" yazdığınızda otomatik olarak renklendiriyor. Önemli geliştirmeler için notlar bırakmak isteyenler için oldukça kullanışlı bir eklenti. Örnek çıktıyı görmek için aşağıdaki görseli inceleyebilirsiniz.
 ![WhatsApp Image 2022-12-18 at 20 56 59](https://user-images.githubusercontent.com/43602725/224565505-f8b6fcb5-afe4-4d20-8b54-9de0238eb4e7.jpg)
 
-[^12] Vs Code eklentisi - Auto Rename Tag:
+[^12]: Vs Code eklentisi - Auto Rename Tag:
 Vs Code eklentisi - Auto Rename Tag:
 Bu eklenti sayesinde otomatik olarak yazdığınız HTML tagi, closing tag içerisinde de otomatik olarak değişir.
 Link: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
