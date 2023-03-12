@@ -1,4 +1,5 @@
 Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 2023. 
+`
       1. VS Code ile Matematiksel İşlemleri Hızlıca Yapma
       2. Github Profilinizi Zenginleştirin
       3. CENG Öğrencilerinin Keyif Alacağı Video
@@ -10,6 +11,7 @@ Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 
       9. SpaceX Roketlerinde Kullanılan Yazılım Dilleri
       10. ChatGPT: Google Gibi Ama Değil
       11. VS Code Extension Önerisi: TODO Highlight
+`
  
 ---
 
