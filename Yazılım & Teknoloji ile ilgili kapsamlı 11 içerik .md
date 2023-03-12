@@ -1,4 +1,5 @@
-Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 2023. 
+#Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 2023. 
+<br>
       [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma<br>
       [^2]. Github Profilinizi Zenginleştirin<br>
       [^3]. CENG Öğrencilerinin Keyif Alacağı Video<br>
