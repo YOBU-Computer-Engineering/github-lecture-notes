@@ -1,6 +1,6 @@
 Kendisini geliştirmek isteyenler için birbirinden değerli 11 farklı içerik 2023. 
-      [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma
-      [^2]. Github Profilinizi Zenginleştirin
+      [^1]. VS Code ile Matematiksel İşlemleri Hızlıca Yapma__
+      [^2]. Github Profilinizi Zenginleştirin__
       [^3]. CENG Öğrencilerinin Keyif Alacağı Video
       [^4]. GitHub Copilot'un Sesli Komut İle Kod Yazma Özelliği "Hey Github"
       [^5]. JavaScript'te Set Metodu ile Tekrar Eden Elemanları Temizleme
