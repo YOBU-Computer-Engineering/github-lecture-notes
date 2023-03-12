@@ -11,7 +11,7 @@
  [^10]. ChatGPT: Google Gibi Ama Değil<br>
  [^11]. VS Code Extension Önerisi: TODO Highlight<br>
  [^12]. Vs Code eklentisi - Otomatik olarak yazdığınız HTML tagi, closing tag içerisinde de otomatik olarak değişirme<br>
- 
+ [^13]. Kendinizin yapay zeka versionunu yapın
 
 [^1]: Matamatiksel işlemleri hızlıca yapma: VS Code'a built-in(kurarken içinde olduğunu belirten bir terim) gelen emmet eklentisiyle hızlı bir şekilde hesap makinesini açmadan matamatiksel ifadenin sonucunu görebilirsin. Bunun için herhangi bir dosya içinde ctrl+shift+p yaparak emmet evaluate math expression yazıyoruz. Entera basınca hesaplama otomatik bir şekilde gerçekleşiyor ve işlemin sonucunu görüyoruz.
 ![WhatsApp Image 2022-10-30 at 19 16 25](https://user-images.githubusercontent.com/43602725/224565452-32063154-8f6c-4a0d-a87c-8d3aa25a896a.jpg)
@@ -66,3 +66,9 @@ ChatGPT, OpenAI tarafından geliştirilen büyük dil modelidir. Google gibi sor
 Vs Code eklentisi - Auto Rename Tag:
 Bu eklenti sayesinde otomatik olarak yazdığınız HTML tagi, closing tag içerisinde de otomatik olarak değişir.
 Link: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
+
+[^13]: Pazar eğlencesi - Yapay Zeka ile kendi kodunuzu çalıştırıp kendinizi çizdirin(Stable Diffusion Dreambooth):
+Yapay zekaya herhangi bir konuda, arka planda portrenizi çizdirmek ister misiniz? Bunun için yapmanız gereken adımlar mevcut. Aşağıdaki videoyu izleyip bu işlemi biraz uğraş sonunda yapabilirsiniz. Hata vs alırsanız yardımcı oluruz. 
+Önemli not: Başlamadan önce 20-30 adet size ait yüz hatlarınızın belirgin olduğu fotoğrafları bulundurun.
+Anlatım video linki: 
+https://www.youtube.com/watch?v=saBo8dDEFAo 
