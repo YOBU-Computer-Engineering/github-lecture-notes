@@ -54,5 +54,5 @@ Link: https://www.youtube.com/watch?v=-WSQEyT2Mu0
 
 ChatGPT, OpenAI tarafından geliştirilen büyük dil modelidir. Google gibi soru sorabildiğiniz, ancak Google'dan farklı bir özelliği bulunan ChatGPT, çok spesifik soruları yanıtlayabilir ve hatta Google'da sadece blog yazılarından elde edebileceğiniz bilgileri bile sunabilir. ChatGPT'nin özelliklerini denemek için kayıt olup aşağıdaki linki ziyaret edebilirsiniz: https://chat.openai.com/chat . Konuyla ilgili Barış Özcan'ın videosuna da aşağıdaki linkten ulaşabilirsiniz: https://www.youtube.com/watch?v=-WSQEyT2Mu0
 
-[^11]. VS Code Extension Önerisi: TODO Highlight
+[^11]: VS Code Extension Önerisi: TODO Highlight
     VS Code kullanıcıları için TODO Highlight adlı bir eklenti mevcut. Eklentiyi kurduktan sonra yorum satırlarında "FIXME:" veya "TODO:" yazdığınızda otomatik olarak renklendiriyor. Önemli geliştirmeler için notlar bırakmak isteyenler için oldukça kullanışlı bir eklenti. Örnek çıktıyı görmek için aşağıdaki görseli inceleyebilirsiniz.
