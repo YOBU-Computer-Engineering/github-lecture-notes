@@ -10,9 +10,12 @@
  [^9]. SpaceX Roketlerinde Kullanılan Yazılım Dilleri<br>
  [^10]. ChatGPT: Google Gibi Ama Değil<br>
  [^11]. VS Code Extension Önerisi: TODO Highlight<br>
+ [^12]. Vs Code eklentisi - Otomatik olarak yazdığınız HTML tagi, closing tag içerisinde de otomatik olarak değişirme<br>
  
 
 [^1]: Matamatiksel işlemleri hızlıca yapma: VS Code'a built-in(kurarken içinde olduğunu belirten bir terim) gelen emmet eklentisiyle hızlı bir şekilde hesap makinesini açmadan matamatiksel ifadenin sonucunu görebilirsin. Bunun için herhangi bir dosya içinde ctrl+shift+p yaparak emmet evaluate math expression yazıyoruz. Entera basınca hesaplama otomatik bir şekilde gerçekleşiyor ve işlemin sonucunu görüyoruz.
+![WhatsApp Image 2022-10-30 at 19 16 25](https://user-images.githubusercontent.com/43602725/224565452-32063154-8f6c-4a0d-a87c-8d3aa25a896a.jpg)
+
    Link:
    https://enginkaratas.com/filtering-duplicate-elements-in-arrays-with-javascripts-set-method
 
@@ -34,7 +37,8 @@
 [^6]: Turnary operator ile if else yapısı çok basitleştirilmiş oluyor. Bu kavram bir çok dilde var. Js(JavaScript)'te kullanımı aşağıdaki gibi oluyor. Oldukça kullanılan bir yontemdir: https://youtube.com/shorts/NP996Rdf8Ww?feature=share
 
 [^7]: VS Code'da Tıklanan Tuşları Gösterme
-   VS Code'da işinizi kolaylaştıracak bir özellik daha keşfedin! Video çekerken veya bir sunumda işe yarayacak olan tuş kombinasyonlarını ekranda göstermek isterseniz, Ctrl + Shift + P tuşlarına basarak 'screencast' seçeneğini seçebilirsiniz. İlgili özelliği aşağıdaki videoda görebilirsiniz: https://youtube.com/shorts/iHLy8Lstopg?feature=share
+   VS Code'da işinizi kolaylaştıracak bir özellik daha keşfedin! Video çekerken veya bir sunumda işe yarayacak olan tuş kombinasyonlarını ekranda göstermek isterseniz Ctrl + Shift + P tuşlarına basarak 'screencast' seçeneğini seçebilirsiniz. İlgili özelliği aşağıdaki videoda görebilirsiniz: https://youtube.com/shorts/iHLy8Lstopg?feature=share
+![WhatsApp Image 2022-11-19 at 20 38 29](https://user-images.githubusercontent.com/43602725/224565491-9811951e-47ee-45ff-b13d-35990d579b0f.jpg)
 
 [^8]: JS bilenler için TypeScript'i kavramanızı kolaylaştıracak bir doküman
    Js biliyor ve typescript öğrenmek istiyorsanız veya modern frameworklerden biriyle typescript(TS) yaziyorsaniz (angular, react). Bu durumda aşağıdaki dokümanı okumaniz TS'i kavramaniz oldukça kolaylaştıracaktır
@@ -56,3 +60,9 @@ ChatGPT, OpenAI tarafından geliştirilen büyük dil modelidir. Google gibi sor
 
 [^11]: VS Code Extension Önerisi: TODO Highlight
     VS Code kullanıcıları için TODO Highlight adlı bir eklenti mevcut. Eklentiyi kurduktan sonra yorum satırlarında "FIXME:" veya "TODO:" yazdığınızda otomatik olarak renklendiriyor. Önemli geliştirmeler için notlar bırakmak isteyenler için oldukça kullanışlı bir eklenti. Örnek çıktıyı görmek için aşağıdaki görseli inceleyebilirsiniz.
+![WhatsApp Image 2022-12-18 at 20 56 59](https://user-images.githubusercontent.com/43602725/224565505-f8b6fcb5-afe4-4d20-8b54-9de0238eb4e7.jpg)
+
+[^12] Vs Code eklentisi - Auto Rename Tag:
+Vs Code eklentisi - Auto Rename Tag:
+Bu eklenti sayesinde otomatik olarak yazdığınız HTML tagi, closing tag içerisinde de otomatik olarak değişir.
+Link: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
