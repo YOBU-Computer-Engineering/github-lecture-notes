@@ -13,6 +13,8 @@
  
 
 [^1]: Matamatiksel işlemleri hızlıca yapma: VS Code'a built-in(kurarken içinde olduğunu belirten bir terim) gelen emmet eklentisiyle hızlı bir şekilde hesap makinesini açmadan matamatiksel ifadenin sonucunu görebilirsin. Bunun için herhangi bir dosya içinde ctrl+shift+p yaparak emmet evaluate math expression yazıyoruz. Entera basınca hesaplama otomatik bir şekilde gerçekleşiyor ve işlemin sonucunu görüyoruz.
+![WhatsApp Image 2022-10-30 at 19 16 25](https://user-images.githubusercontent.com/43602725/224565452-32063154-8f6c-4a0d-a87c-8d3aa25a896a.jpg)
+
    Link:
    https://enginkaratas.com/filtering-duplicate-elements-in-arrays-with-javascripts-set-method
 
