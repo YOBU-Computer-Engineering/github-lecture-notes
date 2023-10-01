@@ -103,7 +103,8 @@ içeriğini ifade eden \*arr2 ile arr2\[0\], aynı değeri ifade eder. Son
 olarak arr2’nin tuttuğu adres değeri hexadecimal biçimde ekrana
 yazdırılır. Ekran çıktısı:
 
-![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/1eba6fb9-ba13-4e87-944a-79d13a954948)
+![33](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/b62fceb6-18c3-4c71-bef9-562cf1e22660)
+
 
 Bir de pointer aritmetiğine göz atalım. Hatırlarsanız, pointer’ın veri
 tipinin bu hususta önemli olduğunu belirtmiştim. Evet, başlarda da
@@ -133,7 +134,7 @@ kullanabileceğimizi de hatırlatmakta fayda var) Burada her bir dizi
 elemanının adres ve değerini sırasıyla ekrana yazdıracağız. Kodumuzu
 çalıştıralım:
 
-<img src="/media/imageb.png" style="width:4.90625in;height:3.59375in" />
+![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/1eba6fb9-ba13-4e87-944a-79d13a954948)
 
 Tablomuz yardımıyla bellekteki işlemleri gözden geçirelim:
 
