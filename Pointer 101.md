@@ -7,7 +7,7 @@ anladığımız sürece bize oldukça kolaylıklar sağlayacaktır. Bu yazımız
 birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
 
-# Pointer'ın Temel İşlevi  
+## Pointer'ın Temel İşlevi  
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
 kaplar: float ise 4 byte, char ise 1 byte, double ise 8 byte... Bir de
@@ -50,7 +50,7 @@ Tablo, kodda 61fe1c adresindeki pointer’a, number’ın bulunduğu 61fe10
 adresinin atandığını gösteriyor. Yani pointer, adres depolayan bir
 değişken görevi görüyor.
 
-# Pointer ile Call by Reference (Referans ile Çağrı)
+## Pointer ile Call by Reference (Referans ile Çağrı)
 
 Call by value (değer ile çağrı) işleminde fonksiyonlar, main’den aldığı
 değişkenlerin değerini değiştiremez. Değişkenleri klonlayıp kopyaları
@@ -84,7 +84,7 @@ Call by value ile call by reference arasındaki bu farkın nedeni, birden
 fazla değişkenin “aynı” içeriğe sahip olabilmesi ama her birinin “farklı
 ve tek” bir adreste bulunmasında gizli.
 
-Pointer, Dizi ve Pointer Aritmetiği
+## Pointer, Dizi ve Pointer Aritmetiği
 
 Diziler, birden fazla değeri temsil eden değişkenlerdir. Belirtilen
 değer sayısı kadar statik bellek tahsisi yapılır. Örneğin double tipinde
