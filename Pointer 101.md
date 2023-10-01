@@ -1,5 +1,4 @@
----
-### Pointer 101
+# Pointer 101
 ---
 
 Pointer; C/C++ dillerinde önemli bir yere sahip ve uzmanlaşmamız için
