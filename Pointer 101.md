@@ -122,7 +122,8 @@ adresine işaret eden pointer, int cinsinde tanımlı. Bu da birim artış
 değerini int boyutuna çeviriyor. Aşağıdaki kod ve tabloyla daha iyi
 anlaşılacak:
 
-![10](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/b9676f48-98b9-446e-bc10-c7b0b52c5692)
+![555](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/3b4d50ba-b115-44d8-9cbf-ccd184c45309)
+
 
 Dizinin ilk elemanının adresini belirten arr2’yi, aPtr isimli pointer’a
 atadık (Bu atamayı yapmadan da dizinin ilk elemanın pointerı ile
@@ -137,8 +138,6 @@ elemanının adres ve değerini sırasıyla ekrana yazdıracağız. Kodumuzu
 ![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/1eba6fb9-ba13-4e87-944a-79d13a954948)
 
 Tablomuz yardımıyla bellekteki işlemleri gözden geçirelim:
-
-<img src="/media/imagec.png" style="width:3.90625in;height:5in" />
 
 Evet, aPtr int türünde olduğu için “aPtr + (sayı)” ifadesi, “aPtr +
 sizeof(int) \* (sayı)” ifadesine eş değer oluyor.
