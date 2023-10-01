@@ -22,7 +22,8 @@ Nasıl ki temelde gördüğümüz her bir değişken bir değeri ifade eder,
 pointer da o değişkenlerin adreslerini ifade eder. Bunun daha iyi
 anlaşılması için aşağıdaki basit kodu ve tabloyu inceleyelim.
 
-<img src="/media/image.png" style="width:5in;height:1.48958in" />
+![1](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/e7db5d80-f872-48eb-9aff-fd4c3df41690)
+
 
 Burada 42 sayısını atadığımız number değişkeninin adresine işaret edecek
 bir pointer tanımlandığını görüyoruz. Tanımlama için öncelikle
@@ -34,7 +35,7 @@ number değişkenin adres değeridir. Ampersand (&), isminin başına geldiği
 değişkenin adresini belirtir. nPtr isimli pointer’a, number’ın adresini
 atadığımıza göre printf ile ekrana çıktı gönderebiliriz:
 
-<img src="/media/image2.png" style="width:3.125in;height:1.17708in" />
+![2](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/6ff80561-ff65-4b66-8b18-fc7391b538e4)
 
 Gördüğümüz üzere nPtr pointer’ının bulunduğu adres, işaret ettiği adres
 ve o adresin içeriğindeki değeri ekrana bastırdık. Evet, pointer da
@@ -43,7 +44,8 @@ arasındaki fark ise değerinin bir adresi ifade etmesidir. Bunu daha iyi
 kavramak için yukarıdaki kodda yaptığımızı basit bir tabloya aktarmak
 mümkün:
 
-<img src="/media/image3.png" style="width:4.375in;height:3.46875in" />
+![3](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/ed2e0e34-6362-4216-aa90-9ddf88031459)
+
 
 Tablo, kodda 61fe1c adresindeki pointer’a, number’ın bulunduğu 61fe10
 adresinin atandığını gösteriyor. Yani pointer, adres depolayan bir
@@ -55,26 +57,28 @@ Call by value (değer ile çağrı) işleminde fonksiyonlar, main’den aldığ�
 değişkenlerin değerini değiştiremez. Değişkenleri klonlayıp kopyaları
 üzerinde işlemler yapar. Ama orijinal değişkenler üzerinde hiçbir etkisi
 olmaz. Örnek olarak bir sayının faktöriyelini hesaplayan koda
-bakalım.<img src="/media/image4.png" style="width:5in;height:3.45833in" />
+bakalım.
+
+![4](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/6715d7ad-df88-4452-9dd1-c9818ac6e3d1)
 
 number değişkeninin bir kopyası fonksiyonda parametre olarak kullanıldı.
 Görüldüğü üzere fonksiyon içindeki komutlar, verilen parametrenin
 değerini değiştiriyor. Ama number değişkeni üzerinde hiçbir etkisi
 olmuyor. Kodumuzu çalıştırıp sonucun nasıl olacağını birlikte görelim:
 
-<img src="/media/image5.png" style="width:3.1875in;height:1.125in" />
+![5](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/873422ef-7d90-47c1-80d9-82fb1b7d34ee)
 
 Evet, number değişkeni üzerinde hiçbir değişiklik yok. Peki ya
 değişkenin adresini kopyalayıp parametre olarak kullansaydık? İşte bu,
 doğrudan adresin içindeki bağımsız değişkene erişmemize olanak tanır.
 Aynı kod üzerinde oynamalar yapalım:
 
-<img src="/media/image6.png" style="width:4.60417in;height:3.23958in" />
+![6](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/78316d34-ae63-4174-8578-a2aac478b383)
 
 Gördüğünüz gibi buradaki fark, number’ın adres değerinin kopyasının
 fonksiyondaki pointer’a atanmasıdır.
 
-<img src="/media/image7.png" style="width:3.09375in;height:1.125in" />
+![7](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/6e43e432-8b52-43d9-8983-3ca719598a13)
 
 Kodumuzu çalıştırdığımızda number değerinin değiştiğini fark ediyoruz.
 Call by value ile call by reference arasındaki bu farkın nedeni, birden
@@ -89,7 +93,7 @@ dört değer tutan dizinin bellekte kapladığı alan 4xsizeof(double) = 32
 byte olacaktır. Pointer ve dizinin belli başlı ortak yönleri vardır.
 Beraber inceleyelim.
 
-<img src="/media/image8.png" style="width:3.40625in;height:2.15625in" />
+![8](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/303e4b7d-e401-4673-8492-53fbf7a56079)
 
 Diziyi tanımladıktan sonra dizinin ismi olan arr2, bir adresi ifade
 eder. Yukarıdaki a değişkenine atadığımız basit mantıksal işleme bakacak
@@ -99,7 +103,7 @@ içeriğini ifade eden \*arr2 ile arr2\[0\], aynı değeri ifade eder. Son
 olarak arr2’nin tuttuğu adres değeri hexadecimal biçimde ekrana
 yazdırılır. Ekran çıktısı:
 
-<img src="/media/image9.png" style="width:1.5in;height:1in" />
+![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/1eba6fb9-ba13-4e87-944a-79d13a954948)
 
 Bir de pointer aritmetiğine göz atalım. Hatırlarsanız, pointer’ın veri
 tipinin bu hususta önemli olduğunu belirtmiştim. Evet, başlarda da
@@ -117,7 +121,7 @@ adresine işaret eden pointer, int cinsinde tanımlı. Bu da birim artış
 değerini int boyutuna çeviriyor. Aşağıdaki kod ve tabloyla daha iyi
 anlaşılacak:
 
-<img src="/media/imagea.png" style="width:5in;height:2.14583in" />
+![10](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/b9676f48-98b9-446e-bc10-c7b0b52c5692)
 
 Dizinin ilk elemanının adresini belirten arr2’yi, aPtr isimli pointer’a
 atadık (Bu atamayı yapmadan da dizinin ilk elemanın pointerı ile
