@@ -8,7 +8,7 @@ anladığımız sürece bize oldukça kolaylıklar sağlayacaktır. Bu yazımız
 birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
 
-Pointer'ın Temel İşlevi  
+# Pointer'ın Temel İşlevi  
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
 kaplar: float ise 4 byte, char ise 1 byte, double ise 8 byte... Bir de
