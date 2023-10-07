@@ -142,3 +142,163 @@ Tablomuz yardımıyla bellekteki işlemleri gözden geçirelim:
 
 Evet, aPtr int türünde olduğu için “aPtr + (sayı)” ifadesi, “aPtr +
 sizeof(int) \* (sayı)” ifadesine eş değer oluyor.
+
+## Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation) 
+
+ 
+
+Önceden de belirtiğim gibi, bir dizi tanımladığınızda eğer dizinin uzunluğu belliyse o dizi için statik bellek
+tahsisi yapılır. Mesela “int dizi[20];” ifadesini girdiğimizde bellekte 20*sizeof(int)=80 byte’lık bir bellek bloğu
+tahsis edilir. Peki, önceden tanımlanmış dizi uzunluğundan daha az ya da daha fazla alana gerek duyarsak? Statik
+bellek tahsisiyle program çalışırken önceden tanımlı olan uzunluğu değiştiremezsiniz. Ya herhangi bir değer
+girmeden yalnızca kullanıcıdan istesek? Bu da mümkün değil. Çünkü program, dizinin uzunluğu belirtilmediği sürece
+çalışmayacaktır. Ama eğer pointer yardımıyla dinamik bellek tahsisi prosedüründen yararlanırsak, yukarıdaki bu
+sorunlar ortadan kalkacaktır. Burada yapacağımız uygulamalar pointer’ın işlevini anlamak amacını gütmekte. O yüzden
+dinamik bellek tahsisi gibi uzun bir konunun detaylarına inmemiz uygun değil. Farklı kaynaklardan bu konunun
+detaylarını araştırabilirsiniz. Öncelikle statik bellek tahsisi ile ilgili bahsettiğim iki durumu inceleyelim. 
+
+![1 1](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/3fad935f-9112-4d39-854d-437ad8108367)
+
+Gördüğünüz gibi bu durumda programın çalışması için öncelikle arr dizisinin uzunluğu belirtilmeli. 
+
+ ![1](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4a839eab-b54f-446b-b6cf-b51ac08d2231)
+
+
+Bu sefer arr dizisinin uzunluğu kod çalıştırılmadan önce belirtildi. Bu durumda ise size’a verilen değer 5’ten
+büyükse bellek ihlali meydana gelecek. Genellikle bu tür bellek ihlallerini C derleyicileri algılamaz. O yüzden
+tahmin edilemeyecek türden sonuçlar meydana gelebilir. Programı çalıştıracak olursak: 
+
+ ![2](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/ec42925e-0ba4-4df8-a7c2-2e70b63e9d58)
+
+
+Görüldüğü gibi tanımladığımız dizinin uzunluğu 5 olmasına rağmen bir eleman fazla ekrana yazdırılmış. Farklı
+uzunlukta tanımlı dizilerde bu fazlalık, farklı sonuçlar verecektir. Şimdi de dinamik bellek ayırma ile ilgili
+uygulamalarımızı yapalım. 
+
+ ![3](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/e0d644b8-397a-4604-8601-1e3a94fea0ab)
+
+
+Bu programda ben dinamik bellek tahsisi için kullanılan dört fonksiyondan ikisi olan malloc() ve free()’yi
+kullandım. Malloc() (memory allocation), bellek bloğunun (bu bellek bloğu bir array, structure vb. için ayrılmış
+olabilir) boyutunun değerini ifade eden bir parametreye sahip olan ve dönüş değeri olarak bu ayrılan bellek
+bloğunun başlangıç adresini döndüren bir fonksiyondur. Alternatifi olan calloc()’a (contiguous allocation) göre hız
+açısından daha avantajlıdır. Ama calloc()’un aksine, ayrılan bloklara otomatik olarak herhangi bir başlangıç değeri
+atanmadığı için atama yapılmadan okuma yapılırsa ekrana rastgele çöp değerleri dönecektir. O yüzden değerler
+okunmadan önce atama yapılması gerekir. Free() fonksiyonu ise program çalıştırıldıktan sonra bellekteki ayrılan
+bloğu serbest bırakır. Dinamik bellek tahsisi manuel olarak kontrol edildiği için bu konseptte bellekteki ayrılan
+alanı serbest bırakma işleminin programcı tarafından yapılması gerekir. Aksi taktirde programda istem dışı sonuçlar
+meydana gelebilir, bellek sızıntıları oluşabilir. Bu bilgiler ışığında programımızı incelersek ilk başta
+istediğimiz “size” değeri ile int’in boyut değerinin çarpımı uzunluğunda bir bellek bloğu ayrılıyor. Malloc,
+(void*) tipi olduğu için ptarr’e atanırken eşitliğin sağında başta (int*) tipine dönüştürüldü. Bu tipteki dönüşüm
+bloğun int boyutuna göre içeriklere ayrılmasını sağlıyor. Böylelikle bellek bloğumuz, int tipinde bir diziyi temsil
+etmiş oluyor. Bu dizinin her bir elemanını, diğer bir deyişle bellek bloğunun her bir içeriğini, birinci for
+döngüsündeki komutlarla tanımlayabiliyoruz. İkinci for döngüsüyle de girilen değerleri ekrana yazdırıyoruz. Son
+olarak free(ptarr) fonksiyonu ile ptarr için ayrılan bellek bloğunu serbest bırakıyoruz. Programımızı çalıştıralım: 
+
+ ![4](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/cdc225f8-16c0-42ad-8c45-1d2b4ee367ce)
+
+
+İşte dinamik bellek ayırma işlemiyle farklı boyutta verileri işlememiz mümkün. Ayrıca ilerleyen bölümlerde struct
+kullanacağımız pointer uygulamalarında da dinamik bellek ayırmanın önemine bir kez daha değinmiş olacağız. 
+
+ 
+
+## Fonksiyon İşaretçisi (Function Pointer) 
+
+ 
+
+Fonksiyon işaretçisi, adı üstünde fonksiyona işaret eder. Kendisine fonksiyonun adresi atanan bir pointer, o
+fonksiyondaki talimatlara erişim sağlar. 
+
+ ![5](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/9cb43cb3-84a2-4790-a6be-3fd3df8c7e05)
+
+
+Görmüş olduğumuz örnekte iki int tipinde parametreye sahip ve void tipinde extra fonksiyonu, kendisiyle özdeş bir
+fonksiyon pointer’ına atandı. Bu atama sayesinde pointer’ı kullanarak istediğimiz parametre değerleriyle extra
+fonksiyonundaki talimatlara erişebiliriz. 
+
+ ![6](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4c92deb7-3ec4-433a-a915-b8db7ae26d5f)
+
+
+Kodu çalıştırdığımızda fonksiyon isminin bir adres değeri döndürdüğünü görüyoruz. Bu değer, fonksiyonun başlangıç
+adresidir. Nasıl ki bir dizinin ismi, ilk elemanının adres değerini ifade ediyordu. Fonksiyon ismi de içindeki
+kodların başlangıç adresini ifade ediyor. 
+
+ 
+
+Fonksiyon pointer’ını tanımlarken dikkat edilmesi gereken noktalardan biri, parantez kullanılarak tanımlanmasıdır.
+int *ptr(int,int) ifadesinde parantez olmadığı için derleyici bunu int tipinde pointer dönüşlü ve iki int tipinde
+parametreye sahip bir fonksiyon olarak algılar. Eğer int (*ptr)(int,int) olarak kullanılırsa bir fonksiyon
+işaretçisi tanımlanmış olur. Pointer dönüşlü fonksiyonları da ilerleyen bölümlerde inceleyeceğiz. 
+
+ 
+
+Dizilere değinmişken, bir fonksiyon işaretçisini birden fazla fonksiyona sahip bir dizi şeklinde kullanabiliriz.
+Bir örnek üzerinden inceleyelim. 
+
+![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/192f309e-82d8-4136-9c18-dacc37fcf5c0)
+
+Bu programda iki sayıyı karşılaştıran, ortalama değerlerini ve birinci sayının ikinci sayıya bölümünden kalanını
+veren ve bu bilgileri ekrana yazdıran üç void tipi fonksiyonu, void tipi bir fonksiyon pointer’ına görülen sırayla
+atadık. Bu sayede kullanıcıdan yapmak istediği işlemi ve kullanmak istediği iki sayıyı alıp değeri (*ptr[c])(a,b)
+ifadesiyle ekrana yazdırabiliyoruz. 
+
+ ![10](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/38704592-a917-40e9-aac6-b3c82b44cb50)
+![12](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/a200fe71-19aa-423a-880b-774b4022d831)
+![11](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/8363e85e-5109-4c7a-a4ff-acb20ff31b7c) 
+
+Yukarıdaki görseller, üç işlevin ayrı ayrı çıktılarını ifade ediyor. 
+
+Bir de fonksiyon işaretçisi sayesinde herhangi bir fonksiyonu farklı bir fonksiyonda parametre olarak
+kullanabiliyor ve sonuç olarak döndürebiliyoruz. 
+ 
+![13](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/b47154f9-91b1-425a-8fd1-68e573b689a7)
+![14](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/1a78b9c4-5e20-45c1-8221-d80a5607a394)
+
+Bu örnekte kullanıcının girmiş olduğu rakamın rastgele rakam barındıran b’nin değeriyle eşit olup olmadığını
+belirliyoruz. “esitlikdurumu” fonksiyonu, doğru cevap verildiğinde “esit”, yanlış cevap verildiğinde “esitdegil”
+fonksiyonunu parametre olarak alır. Bu işlem fonksiyon pointer’ı sayesinde mümkün olur. 
+
+ 
+
+## Double Pointer 
+
+ 
+
+Pointer’lar ötelenebilme özelliğine sahiptirler. Bir a değişkeninin pointer’ı a’ya işaret ettiği gibi a değişkenin
+pointer’ının pointer’ı da a değişkeninin pointer’ına işaret eder. 
+
+ ![15](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/06ab06b4-99ec-4044-9c18-008bf91d940a)
+
+C dilinde pointer boyutunda belli bir sınır yoktur yalnız ne kadar fazla boyutta pointer kullanırsak bir o kadar da
+programımız karmaşık ve hataya müsait olur. Biz burada örnek ve yaygın olması açısından double pointer’ları ele
+alacağız. 
+
+Double pointer’ın önemli uygulamalarından biri bellek ayırarak matris (iki boyutlu dizi) oluşturmaktır. Bir örnek
+üzerinden inceleyelim. 
+
+![16](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/1c1181cb-5a96-468d-ae7c-82d886134900)
+
+Burada size_1 dizimizin satır sayısını, size_2 ise sütun sayısını ifade ediyor. malloc() fonksiyonunu kullanarak
+öncelikle satır sayısı kadar her bir sütundaki elemanlara işaret edecek pointer’ı, dptr ismindeki double pointer
+için ayırdık. Sonra bu ayrılan satır sayısı kadar pointer’a sütun sayısı kadar integer boyutunda bellek bloğu
+ayırdık. Sonra da random algoritmamızın başlangıç değerini ifade eden srand() fonksiyonunu kullanıp programın her
+başlatıldığı anda farklı bir değerin ekrana yazdırılması için mevcut POSIX zamanını (UNIX olarak da bilinir,
+başlangıç tarihi 1 Ocak 1970’tir) saniye cinsinde tutan time(NULL) ifadesini seed olarak kullandık. Sonra iç içe
+for döngüsü yardımıyla her bir matris (iki boyutlu dizi) elemanına sırasıyla random değerler atadık. Son olarak da
+dinamik bellek ayırma sürecinde asla unutmamamız gerek fonksiyon olan free() ile dptr için ayrılan bellek
+bloklarını serbest bıraktık. Programı çalıştırırsak: 
+
+![17](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/0ffdaa51-db95-4b20-a66c-9f8d7e07faae)
+
+Bu bellek ayırma işlemini char tipi bir iki boyutlu dizi için de yapabilir ve istediğimiz uzunlukta cümleler
+oluşturabiliriz. 
+
+Bir diğer önemli uygulamalarından biri de call by reference’dır. Call by reference, önceden de tanımladığımız gibi,
+fonksiyon aracılığıyla bir değişkenin içeriğini değiştirmek için adresini parametre olarak kullanmaktır. 
+
+![18](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/cd763e01-d28a-4e4f-aef6-35e0f18acd69)
+ ![19](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/60b227d8-adeb-4ed9-81fb-67ab6cf5d9a2)
+
+Bu örnekte c’nin adres değerini tutan cPtr ile d’nin adres değerini tutan dPtr’nin tuttukları adres değerlerini
+değiştirdik. Bunu yapmak için degisim ismindeki void tipi ve iki double pointer parametreli fonksiyonu kullandık. 
