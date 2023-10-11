@@ -9,7 +9,7 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
 
-### Pointer'ın Temel İşlevi
+### [Pointer'ın Temel İşlevi](#pointerin-temel-islevi)
 ### Pointer ile Call by Reference (Referans ile Çağrı)
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
@@ -19,7 +19,7 @@ Konu Başlıkları:
 ### Pointer ile Struct ve Enum
 ### File Pointer
 
-## [Pointer'ın Temel İşlevi](#pointerin-temel-islevi)
+## Pointer'ın Temel İşlevi
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
 kaplar: float ise 4 byte, char ise 1 byte, double ise 8 byte... Bir de
