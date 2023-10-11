@@ -9,13 +9,8 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
 
-a[href^="#"] {
-  color: blue;
-  cursor: pointer;
-}
-
-<a href="#ptr-temel-islev">Pointer'ın Temel İşlevi</a>
-<a href="#callbyreference">Pointer ile Call by Reference (Referans ile Çağrı)</a>
+### Pointer'ın Temel İşlevi
+### Pointer ile Call by Reference (Referans ile Çağrı)
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
 ### Fonksiyon İşaretçisi (Function Pointer)
@@ -24,7 +19,7 @@ a[href^="#"] {
 ### Pointer ile Struct ve Enum
 ### File Pointer
 
-<h1 id="ptr-temel-islev">Pointer'ın Temel İşlevi</h1>  
+## [Pointer'ın Temel İşlevi](#pointerin-temel-islevi)
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
 kaplar: float ise 4 byte, char ise 1 byte, double ise 8 byte... Bir de
@@ -67,7 +62,7 @@ Tablo, kodda 61fe1c adresindeki pointer’a, number’ın bulunduğu 61fe10
 adresinin atandığını gösteriyor. Yani pointer, adres depolayan bir
 değişken görevi görüyor.
 
-<h1 id="callbyreference">Pointer ile Call by Reference (Referans ile Çağrı)</h1>
+## Pointer ile Call by Reference (Referans ile Çağrı)
 
 Call by value (değer ile çağrı) işleminde fonksiyonlar, main’den aldığı
 değişkenlerin değerini değiştiremez. Değişkenleri klonlayıp kopyaları
