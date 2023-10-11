@@ -9,8 +9,8 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
 
-### [Pointer'ın Temel İşlevi](#pointerin-temel-islevi)
-### Pointer ile Call by Reference (Referans ile Çağrı)
+[### Pointer'ın Temel İşlevi](#pointerin-temel-islevi)
+[### Pointer ile Call by Reference (Referans ile Çağrı)](#pointer-ile-call-by-reference(referans-ile-cagri))
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
 ### Fonksiyon İşaretçisi (Function Pointer)
