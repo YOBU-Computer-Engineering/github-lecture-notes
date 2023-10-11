@@ -7,6 +7,17 @@ anladığımız sürece bize oldukça kolaylıklar sağlayacaktır. Bu yazımız
 birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
 
+Konu Başlıkları:
+### Pointer'ın Temel İşlevi
+### Pointer ile Call by Reference (Referans ile Çağrı)
+### Pointer, Dizi ve Pointer Aritmetiği
+### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
+### Fonksiyon İşaretçisi (Function Pointer)
+### Double Pointer
+### Pointer Dönüşlü Fonksiyonlar
+### Pointer ile Struct ve Enum
+### File Pointer
+
 ## Pointer'ın Temel İşlevi  
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
@@ -305,7 +316,7 @@ değiştirdik. Bunu yapmak için degisim ismindeki void tipi ve iki double point
 
 
 
-### Pointer Dönüşlü Fonksiyonlar 
+## Pointer Dönüşlü Fonksiyonlar 
 
 
 
@@ -324,7 +335,7 @@ ptarr’a atanarak ptarr için gerekli bellek tahsisi yapılmış oluyor.
 
  
 
-### Pointer ile Struct ve Enum 
+## Pointer ile Struct ve Enum 
 
  
 
@@ -399,7 +410,7 @@ yerleştiriyoruz.
 
 
 
-### File Pointer 
+## File Pointer 
 
 
  
