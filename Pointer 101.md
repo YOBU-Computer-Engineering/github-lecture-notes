@@ -10,7 +10,7 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 Konu Başlıkları:
 
 <a href="#ptr-temel-islev">Pointer'ın Temel İşlevi</a>
-<a href="https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-ile-call-by-reference-referans-ile-%C3%A7a%C4%9Fr%C4%B1">Pointer ile Call by Reference (Referans ile Çağrı)</a>
+<a href="#callbyreference">Pointer ile Call by Reference (Referans ile Çağrı)</a>
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
 ### Fonksiyon İşaretçisi (Function Pointer)
@@ -62,7 +62,7 @@ Tablo, kodda 61fe1c adresindeki pointer’a, number’ın bulunduğu 61fe10
 adresinin atandığını gösteriyor. Yani pointer, adres depolayan bir
 değişken görevi görüyor.
 
-## Pointer ile Call by Reference (Referans ile Çağrı)
+<h1 id="callbyreference">Pointer ile Call by Reference (Referans ile Çağrı)</h1>
 
 Call by value (değer ile çağrı) işleminde fonksiyonlar, main’den aldığı
 değişkenlerin değerini değiştiremez. Değişkenleri klonlayıp kopyaları
