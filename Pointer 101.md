@@ -301,4 +301,158 @@ fonksiyon aracılığıyla bir değişkenin içeriğini değiştirmek için adre
  ![19](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/60b227d8-adeb-4ed9-81fb-67ab6cf5d9a2)
 
 Bu örnekte c’nin adres değerini tutan cPtr ile d’nin adres değerini tutan dPtr’nin tuttukları adres değerlerini
-değiştirdik. Bunu yapmak için degisim ismindeki void tipi ve iki double pointer parametreli fonksiyonu kullandık. 
+değiştirdik. Bunu yapmak için degisim ismindeki void tipi ve iki double pointer parametreli fonksiyonu kullandık.
+
+
+
+### Pointer Dönüşlü Fonksiyonlar 
+
+
+
+Pointer dönüşlü fonksiyonlarda döndürülen değer pointer tipindedir. Söz dizimi, önceden de söz ettiğimiz gibi 
+fonksiyon pointer’ından biraz farklı olarak şöyledir: type* ptr(type var1, type var2). 
+
+ ![20](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/3535ce46-ebd3-49de-8b6a-c2f571712ced)
+
+
+Burada int tipi bir dizinin eleman sayısı ve değerleri kullanıcıdan alınıyor. Eleman sayısı alındıktan sonra 
+intmalloc fonksiyonunda int tipine uygun uzunlukta bir bellek bloğu ayrılıyor ve döndürülen ptr, 
+ptarr’a atanarak ptarr için gerekli bellek tahsisi yapılmış oluyor. 
+
+ 
+![21](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/9547f9ec-b9b2-4b8e-9346-11d638d97382)
+
+ 
+
+### Pointer ile Struct ve Enum 
+
+ 
+
+Structure’lar (kısacası struct) birbirinden farklı tipteki değişkenleri bir arada tutabilirler. Enumeration (kısacası enum) ise kullanıcı tarafından oluşturulan ve isimli tam sayıları tutan bir veri türüdür. 
+Enum içindeki constant değişkenler, sabit ya da kullanıcı tarafından verilmiş değerlere sahip olabilir. Structure ve enumeration konularıyla ilgili eksiklik hissediyorsanız bu iki konuya göz attıktan sonra 
+devam etmeniz daha iyi olabilir. Yine de yapacağım örnekler pointer’ın buradaki işlevinin anlaşılması açısından temel seviyede olacaktır ve bu konularla ilgili bazı noktalar özetlenecektir. 
+
+ 
+
+Struct’ı kullanarak aşağıda görüldüğü gibi veri girişleri yapmak mümkün: 
+
+ ![22](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/c3a6c26c-99bd-4f50-a441-8d87bd69a9a2)
+
+
+Typedef, veri türünü isimlendirmemizi mümkün kılan bir işlevdir. “filmturu” ismindeki enum’ımızı “ft” ile, “film” 
+ismindeki struct’ımızı da “f” ile adlandırdık. Struct’ımızı kullanmak için main’de film1 adlı değişkenimizi 
+oluşturduk. 
+
+ ![23](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/c4fc3c85-a245-4c30-8dae-1f05368a5b63)
+
+
+Burada film1 değişkenindeki üyelere erişmek için “.” operatörünü kullandık. Öncelikle filmin adını atadık, bunu 
+yapmak için string.h kütüphanesindeki strcpy() fonksiyonundan yararlandık. strcpy(), ikinci 
+string değişkenini birinci string değişkenine kopyalamak için kullanılır. Bilindiği üzere C dilinde string 
+ifadeler, char tipi dizilerdir. O yüzden direkt film1.filmadi= “The Dark Knight” gibi bir komutla 
+atama yapmamız C dilinde mümkün değildir. Filmin türünü atarken de kısaca “ft” diye adlandırdığımız “filmturu” 
+enum’ımızdaki Aksiyon ögesini kullandık. Burada “Aksiyon”, bir constant int değerini temsil eder 
+ve değeri de “1”dir. Yani printf(“%s”,film1.tur) komutu doğru bir sonuç vermeyecektir. Bu yüzden enum ögelerinin
+sahip oldukları ardışık değerleri switch-case'te kullanarak türü ekrana yazdırıyoruz. Bunu printtur fonksiyonunda 
+gerçekleştiriyoruz. Filmin İMDb puanını tanımlarken float değişkeninden yararlandık. Yapım yılı için de int 
+değişkeninden. Peki bunları bir pointer ile yapsak? 
+
+ ![24](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/da914675-3eec-452d-ac5d-b418b1d42290)
+
+Pointer ile struct içindeki değişkenlere değer atayacağımızda “->” operatörünü kullanıyoruz. Bu, pointer’ın işaret 
+ettiği struct değişkenin içeriğini değiştirebilmemizi sağlar. Buradan yola çıkarsak “ptr->filmadi” ile 
+“(*ptr).filmadi” ifadelerinin eşdeğerde olduğu sonucuna varabiliriz. 
+
+ 
+
+Pointer, özellikle struct’ımızı kullanıp birden fazla değişken oluşturmak istediğimizde işimize yarayacaktır. 
+Öncelikle statik bellek tahsisi ile bu uygulamayı yapalım. 
+
+ ![25](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/8338635e-c29e-4e99-9849-e9c2ed00e464) 
+![26](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/73d52dc1-4806-49f4-8ee1-28692e5eb95f)
+
+Burada “size” değeri uzunluğunda f tipi bir dizi kullanarak statik bellek tahsisi yapıldı. Böylelikle dizinin 
+başlangıç adresini ifade eden “film” değişkenini f tipi bir pointer’a atayıp pointer 
+aritmetiğinden yararlandık. İlk döngünün sonunda getchar fonksiyonunu kullanmamızın nedeni, kullanıcının film yapım 
+tarihini yazdıktan sonra enter’a tıkladığında fgets’in bunu bir veri olarak algılaması ve 
+fonksiyondaki talimatları sonlandırmasıdır. Bu da birincisi hariç diğer filmlerin isimlerini giremememize neden 
+olur. Enter’ı kullandığımızda “\n” verisi getchar tarafından algılanacak ve böylelikle fgets 
+ile kullanıcıdan film ismi alınabilecek. İkinci döngüden önce birinci döngüde değerini arttırdığımız için ptr’ye 
+dizinin başlangıç adresini tekrar atadık. 
+
+ ![27](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/290b20d8-6d66-43e9-ba63-affd280f2ece)
+
+Fark ettiyseniz alt satıra geçmek için kullandığımız “\n” karakterini 38. satırda kullanmamamıza rağmen her bir 
+film adı ekrana yazdırıldıktan sonra bir satır altta yazdırma işlemi devam etmiş. Bunun nedeni,
+yukarıda bahsedildiği üzere, fgets fonksiyonunun enter’ı veri olarak saymasıdır. Kullanıcı film isimlerini girip 
+enter’a bastığında fonksiyon bunu sonlandırıcı karakter olarak algılar ve dizenin son
+karakteri “\n” olur. 
+ 
+Şimdi de dinamik bellek tahsisiyle kaç filmin bilgisi girileceğini kullanıcıya soralım. 
+ 
+![28](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4ecf83ee-57c4-49eb-81aa-f71f805152f4)
+
+Önceki dinamik bellek tahsisi uygulamalarımızdan hatırlarsanız öncelikle kullanıcıdan kaç bellek bloğu ayırmak 
+istediğini öğreniyoruz. (Girilen değer)x(struct’ımızın boyutu) kadar bloğu ptr için ayırıyoruz.
+Ayrıca kullanıcı değeri girip enter’a tıkladığında fgets bunu algılayacağı için araya getchar işlevini 
+yerleştiriyoruz. 
+
+
+
+### File Pointer 
+
+
+ 
+Herhangi bir veriyi dosyaya kaydetmek, dosyadaki verileri okumak gibi dosya giriş-çıkış işlemlerinde de pointer’a 
+ihtiyaç duyarız. File pointer; dosyanın ismi, konumu, modu (“w”, “w+”, “a” gibi) ve dosyadaki
+anlık konum gibi bilgilerini depolar. Derleyicideki söz dizimi şu şekildedir: 
+
+FILE* ptr; 
+
+Burada FILE, dosya işaretçisi için önceden tanımlı olan yapının typedef ile belirlenen adıdır. Öncelikle structure 
+ve enumeration konularında olduğu gibi bu konunun da detaylarına inmemiz uygun değil.
+İsteyenler, birçok mod ve işlevi barındıran bu konuyu ayrıca araştırabilir. Biz burada pointer’a bakan kısmını 
+kısaca inceleyeceğiz. 
+
+File pointer’ın işlevlerinden biri olan dosyaya veri aktarma uygulamasının basit bir örneğini inceleyelim: 
+ 
+![29](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/9b766d9e-b7a1-4c7c-9c2b-b455ea13b0c8)
+
+Örnekte tanımlanan fPtr file pointer’ımız, dosya üzerinde farklı modlarla işlem yapabilmek için kullandığımız fopen 
+işlevinde belirtilen moda bağlı davranışlarda bulunur. Örneğin buradaki “w” (write) modu;
+file pointer’ın eğer dosya mevcut değilse dosyayı oluşturmasına, mevcutsa dosyanın başlangıç konumundan 
+başlamasına, eğer mevcut dosyada içerik de mevcutsa yazma işleminde içeriğin üzerine yazmasına, bu
+işlem her devam ettiğinde dosyadaki konumunu ilerletmesine ve okuma işlemini yapamamasına neden olur. 
+ 
+![30](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/c01b2808-e712-44c0-8c1f-b622814022b3)
+
+Gördüğünüz gibi burada otomatik olarak projemizin bulunduğu klasörde dosyamız oluştu. İstersek dosyanın konumunu 
+farklı yapabiliriz. Bunun için hedef klasörü dosyamızdan önce belirtmemiz yeterli olacaktır. 
+
+Pointer’ın dosya işlemlerindeki işlevini göz attığımıza göre şimdi de bir önceki konumuzda bulunan struct ve enum 
+ile ilgili dinamik bellek tahsisi uygulamamıza file pointer’ı ekleyerek girilen verileri bir
+dosyaya yazdıralım. 
+
+ ![31](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/22ba7d56-7874-449f-8598-bfce7b60c2d1)
+![32](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4db7b251-34f6-4879-8c50-62c929744f7a)
+
+
+Burada yeni bir dosyaya verileri yazdırmak için “w” modunu kullandık. Yazdırma işlemi için de fprintf fonksiyonunu 
+kullandık. Program devam ettiği sürece hazır dosya işlemleri arabellekte tutulur. Program
+sonlanınca da işlemler diskte uygulanır. Yalnız burada free() fonksiyonu fclose()’dan önce geldiği için ayrılan 
+bellek blokları serbest bırakılır ve işlemdeki veriler kaybolur. Bu yüzden de açılan dosya boş
+olur. Tabii ki bu problem, free() fonksiyonunu fclose()’dan sonra yazmakla çözülebilir. Ama ben burada dosyanın her 
+bir film bilgisinin sırasıyla işlemleri tamamlanınca dosyaya yazdırılmasını istediğim için for döngüsünün sonunda 
+ffllush() fonksiyonunu kullandım. Böylelikle her bir for döngüsünün sonunda ara bellekteki işlemler diskteki 
+dosyaya uygulanıyor. 
+
+Konsola girilen değerler: 
+
+ ![33](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/bd8c9833-ea09-41f2-acd9-3a70ac7ba96b)
+
+Dosya içeriği: 
+
+ ![34](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/2c61ea93-d35f-4298-bd42-767bb1b495f9)
+
+Pointer ile ilgili anlatacaklarım bu kadardı. Buraya kadar konuyla ilgili herhangi bir soru, eleştri veya katkınız
+olursa bana asbalandi@gmail.com adresinden ulaşabilirsiniz. 
