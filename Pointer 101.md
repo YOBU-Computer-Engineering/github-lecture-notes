@@ -8,7 +8,7 @@ birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
-### Pointer'ın Temel İşlevi
+<a href="## Pointer'ın Temel İşlevi">Pointer'ın Temel İşlevi</a>
 ### Pointer ile Call by Reference (Referans ile Çağrı)
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
