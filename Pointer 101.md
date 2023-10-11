@@ -8,8 +8,9 @@ birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
-<a href="https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer%C4%B1n-temel-i%CC%87%C5%9Flevi">Pointer'ın Temel İşlevi</a>
-### Pointer ile Call by Reference (Referans ile Çağrı)
+
+<a href="#ptr-temel-islev">Pointer'ın Temel İşlevi</a>
+<a href="https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-ile-call-by-reference-referans-ile-%C3%A7a%C4%9Fr%C4%B1">Pointer ile Call by Reference (Referans ile Çağrı)</a>
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
 ### Fonksiyon İşaretçisi (Function Pointer)
@@ -18,7 +19,7 @@ Konu Başlıkları:
 ### Pointer ile Struct ve Enum
 ### File Pointer
 
-## Pointer'ın Temel İşlevi  
+<h1 id="ptr-temel-islev">Pointer'ın Temel İşlevi</h1>  
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
 kaplar: float ise 4 byte, char ise 1 byte, double ise 8 byte... Bir de
