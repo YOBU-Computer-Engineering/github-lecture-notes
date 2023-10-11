@@ -10,14 +10,14 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 Konu Başlıkları:
 
 ### [-Pointer'ın Temel İşlevi](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer%C4%B1n-temel-i%CC%87%C5%9Flevi)
-[Pointer ile Call by Reference (Referans ile Çağrı)](#pointer-ile-call-by-reference(referans-ile-çağrı))
-### Pointer, Dizi ve Pointer Aritmetiği
-### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
-### Fonksiyon İşaretçisi (Function Pointer)
-### Double Pointer
-### Pointer Dönüşlü Fonksiyonlar
-### Pointer ile Struct ve Enum
-### File Pointer
+### [-Pointer ile Call by Reference (Referans ile Çağrı)](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-ile-call-by-reference-referans-ile-%C3%A7a%C4%9Fr%C4%B1)
+### [-Pointer, Dizi ve Pointer Aritmetiği](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-dizi-ve-pointer-aritmeti%C4%9Fi-1)
+### [-Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-ile-dinamik-bellek-tahsisi-dynamic-memory-allocation-1)
+### [-Fonksiyon İşaretçisi (Function Pointer)](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#fonksiyon-i%CC%87%C5%9Faret%C3%A7isi-function-pointer)
+### [-Double Pointer](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#double-pointer)
+### [-Pointer Dönüşlü Fonksiyonlar](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-d%C3%B6n%C3%BC%C5%9Fl%C3%BC-fonksiyonlar)
+### [-Pointer ile Struct ve Enum](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#pointer-ile-struct-ve-enum)
+### [-File Pointer](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/edit/main/Pointer%20101.md#file-pointer)
 
 ## Pointer'ın Temel İşlevi
   
