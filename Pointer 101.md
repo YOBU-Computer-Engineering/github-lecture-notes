@@ -9,7 +9,12 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
 
-<a href="##ptr-temel-islev">Pointer'ın Temel İşlevi</a>
+a[href^="#"] {
+  color: blue;
+  cursor: pointer;
+}
+
+<a href="#ptr-temel-islev">Pointer'ın Temel İşlevi</a>
 <a href="#callbyreference">Pointer ile Call by Reference (Referans ile Çağrı)</a>
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
@@ -19,7 +24,7 @@ Konu Başlıkları:
 ### Pointer ile Struct ve Enum
 ### File Pointer
 
-<h1 id="##ptr-temel-islev">Pointer'ın Temel İşlevi</h1>  
+<h1 id="ptr-temel-islev">Pointer'ın Temel İşlevi</h1>  
   
 Bilgisayar ortamındaki her bir veri değeri, hafızada belli bir yer
 kaplar: float ise 4 byte, char ise 1 byte, double ise 8 byte... Bir de
