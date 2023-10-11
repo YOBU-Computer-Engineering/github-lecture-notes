@@ -9,7 +9,7 @@ yardımcı olacak örnekleri gözden geçireceğiz.
 
 Konu Başlıkları:
 
-### [Pointer'ın Temel İşlevi](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer%C4%B1n-temel-i%CC%87%C5%9Flevi)
+### [-Pointer'ın Temel İşlevi](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer%C4%B1n-temel-i%CC%87%C5%9Flevi)
 [Pointer ile Call by Reference (Referans ile Çağrı)](#pointer-ile-call-by-reference(referans-ile-çağrı))
 ### Pointer, Dizi ve Pointer Aritmetiği
 ### Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)
