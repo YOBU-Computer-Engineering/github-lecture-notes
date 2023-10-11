@@ -1,8 +1,7 @@
 # Pointer 101
 ---
 
-Pointer; C/C++ dillerinde önemli bir yere sahip ve uzmanlaşmamız için
-biraz efor sarfetmemiz gereken bir konudur. Ama temel mantığını
+Pointer; C/C++ dillerinde önemli bir yere sahip ve uzmanlaşmamız için efor sarfetmemiz gereken bir konudur. Ama temel mantığını
 anladığımız sürece bize oldukça kolaylıklar sağlayacaktır. Bu yazımızda,
 birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
