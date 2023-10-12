@@ -734,17 +734,58 @@ değiştirdik. Bunu yapmak için degisim ismindeki void tipi ve iki double point
 Pointer dönüşlü fonksiyonlarda döndürülen değer pointer tipindedir. Söz dizimi, önceden de söz ettiğimiz gibi 
 fonksiyon pointer’ından biraz farklı olarak şöyledir: type* ptr(type var1, type var2). 
 
- ![20](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/3535ce46-ebd3-49de-8b6a-c2f571712ced)
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
+int* intmalloc(int);
+
+int main()
+{
+    int* ptarr, number;
+    printf("Dizinizin eleman sayisini giriniz: ");
+    scanf("%d",&number);
+    ptarr=intmalloc(number);
+
+    for(int i=0;i<number;i++){
+        printf("%d. elemanin degerini giriniz: ",i+1);
+        scanf("%d",ptarr+i);
+    }
+    printf("\n");
+    for(int i=0;i<number;i++){
+        printf("%d. elemanin degeri: %d\n",i+1,ptarr[i]);
+    }
+    free(ptarr);
+
+    return 0;
+}
+
+int* intmalloc(int size){
+    int* ptr=(int*)malloc(sizeof(int)*size);
+    return ptr;
+}
+```
 
 Burada int tipi bir dizinin eleman sayısı ve değerleri kullanıcıdan alınıyor. Eleman sayısı alındıktan sonra 
 intmalloc fonksiyonunda int tipine uygun uzunlukta bir bellek bloğu ayrılıyor ve döndürülen ptr, 
 ptarr’a atanarak ptarr için gerekli bellek tahsisi yapılmış oluyor. 
 
  
-![21](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/9547f9ec-b9b2-4b8e-9346-11d638d97382)
+```console
+Dizinizin eleman sayisini giriniz: 5
+1. elemanin degerini giriniz: 3245
+2. elemanin degerini giriniz: 234
+3. elemanin degerini giriniz: 23
+4. elemanin degerini giriniz: 7
+5. elemanin degerini giriniz: 645
 
- 
+1. elemanin degeri: 3245
+2. elemanin degeri: 234
+3. elemanin degeri: 23
+4. elemanin degeri: 7
+5. elemanin degeri: 645
+```
+
 
 ## Pointer ile Struct ve Enum 
 
@@ -758,15 +799,72 @@ devam etmeniz daha iyi olabilir. Yine de yapacağım örnekler pointer’ın bur
 
 Struct’ı kullanarak aşağıda görüldüğü gibi veri girişleri yapmak mümkün: 
 
- ![22](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/c3a6c26c-99bd-4f50-a441-8d87bd69a9a2)
+ ```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef enum filmturu{Aksiyon=1, BilimKurgu, Gerilim, Dram, Korku, Komedi}ft;
+
+typedef struct film{
+    char filmadi[30];
+    ft tur;
+    float imdb;
+    int yapimyili;
+}f;
+void printtur(ft);
+int main()
+{
+    f film1;
+    return 0;
+}
+```
 
 
 Typedef, veri türünü isimlendirmemizi mümkün kılan bir işlevdir. “filmturu” ismindeki enum’ımızı “ft” ile, “film” 
 ismindeki struct’ımızı da “f” ile adlandırdık. Struct’ımızı kullanmak için main’de film1 adlı değişkenimizi 
 oluşturduk. 
 
- ![23](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/c4fc3c85-a245-4c30-8dae-1f05368a5b63)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+typedef enum filmturu{Aksiyon=1, BilimKurgu, Gerilim, Dram, Korku, Komedi}ft;
+
+typedef struct film{
+    char filmadi[30];
+    ft tur;
+    float imdb;
+    int yapimyili;
+}f;
+void printtur(ft);
+int main()
+{
+    f film1;
+
+    strcpy(film1.filmadi,"The Dark Knight");
+    film1.tur=Aksiyon;
+    film1.imdb=9.0f;
+    film1.yapimyili=2008;
+
+    printf("%s\n%d\n%.1f\n",film1.filmadi,film1.yapimyili,film1.imdb);
+    printtur(film1.tur);
+
+    return 0;
+}
+
+void printtur(ft tur){
+    switch(tur){
+        case 1:printf("Aksiyon");break;
+        case 2:printf("Bilim Kurgu");break;
+        case 3:printf("Gerilim");break;
+        case 4:printf("Dram");break;
+        case 5:printf("Korku");break;
+        case 6:printf("Komedi");break;
+    }
+    printf("\n");
+```
 
 Burada film1 değişkenindeki üyelere erişmek için “.” operatörünü kullandık. Öncelikle filmin adını atadık, bunu 
 yapmak için string.h kütüphanesindeki strcpy() fonksiyonundan yararlandık. strcpy(), ikinci 
@@ -779,30 +877,198 @@ sahip oldukları ardışık değerleri switch-case'te kullanarak türü ekrana y
 gerçekleştiriyoruz. Filmin İMDb puanını tanımlarken float değişkeninden yararlandık. Yapım yılı için de int 
 değişkeninden. Peki bunları bir pointer ile yapsak? 
 
- ![24](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/da914675-3eec-452d-ac5d-b418b1d42290)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef enum filmturu{Aksiyon=1, BilimKurgu, Gerilim, Dram, Korku, Komedi}ft;
+
+typedef struct film{
+    char filmadi[30];
+    ft tur;
+    float imdb;
+    int yapimyili;
+}f;
+
+void printtur(ft);
+
+int main()
+{
+    f film1;
+    f *ptr=&film1;
+
+    strcpy(ptr->filmadi,"The Dark Knight");
+    ptr->tur=Aksiyon;
+    ptr->imdb=9.0;
+    ptr->yapimyili=2008;
+
+    printf("Filmin adi: %s\nYapim yili: %d\nIMDb puani: %.1f\nTuru: ",ptr->filmadi,ptr->yapimyili,ptr->imdb);
+    printtur(ptr->tur);
+
+
+    return 0;
+}
+void printtur(ft tur){
+    switch(tur){
+        case 1:printf("Aksiyon");break;
+        case 2:printf("Bilim Kurgu");break;
+        case 3:printf("Gerilim");break;
+        case 4:printf("Dram");break;
+        case 5:printf("Korku");break;
+        case 6:printf("Komedi");break;
+        default:printf("Tanimsiz"); break;
+    }
+    printf("\n");
+}
+```
+
+```console
+Filmin adi: The Dark Knight
+Yapim yili: 2008
+IMDb puani: 9.0
+Turu: Aksiyon
+```
 
 Pointer ile struct içindeki değişkenlere değer atayacağımızda “->” operatörünü kullanıyoruz. Bu, pointer’ın işaret 
 ettiği struct değişkenin içeriğini değiştirebilmemizi sağlar. Buradan yola çıkarsak “ptr->filmadi” ile 
 “(*ptr).filmadi” ifadelerinin eşdeğerde olduğu sonucuna varabiliriz. 
 
- 
-
 Pointer, özellikle struct’ımızı kullanıp birden fazla değişken oluşturmak istediğimizde işimize yarayacaktır. 
 Öncelikle statik bellek tahsisi ile bu uygulamayı yapalım. 
 
- ![25](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/8338635e-c29e-4e99-9849-e9c2ed00e464) 
-![26](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/73d52dc1-4806-49f4-8ee1-28692e5eb95f)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef enum filmturu{Aksiyon=1, BilimKurgu, Gerilim, Dram, Korku, Komedi}ft;
+
+typedef struct film{
+    char filmadi[30];
+    ft tur;
+    float imdb;
+    int yapimyili;
+}f;
+
+void printtur(ft);
+
+int main()
+{
+    int size=5;
+    f film[size];
+    f* ptr=film;
+
+    for(int i=0;i<size;i++,ptr++){
+        printf("----- %d. Film -----\n",i+1);
+        printf("Filmin adi: ");
+        fgets(ptr->filmadi,sizeof(ptr->filmadi),stdin);
+        printf("Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): ");
+        scanf("%d",&ptr->tur);
+        printf("Filmin imdb puani: ");
+        scanf("%f",&ptr->imdb);
+        printf("Filmin yapim yili: ");
+        scanf("%d",&ptr->yapimyili);
+        printf("\n");
+        getchar();
+    }
+    ptr=film;
+    for(int i=0;i<size;i++,ptr++){
+        printf("----- %d. Film -----\n",i+1);
+        printf("Filmin adi: %s",ptr->filmadi);
+        printf("Filmin Turu:");
+        printtur(ptr->tur);
+        printf("Filmin imdb puani: %.1f\n",ptr->imdb);
+        printf("Filmin yapim yili: %d\n\n",ptr->yapimyili);
+    }
+
+    return 0;
+}
+
+void printtur(ft tur){
+    switch(tur){
+        case 1:printf("Aksiyon");break;
+        case 2:printf("Bilim Kurgu");break;
+        case 3:printf("Gerilim");break;
+        case 4:printf("Dram");break;
+        case 5:printf("Korku");break;
+        case 6:printf("Komedi");break;
+        default:printf("Tanimsiz"); break;
+    }
+    printf("\n");
+}
+```
 
 Burada “size” değeri uzunluğunda f tipi bir dizi kullanarak statik bellek tahsisi yapıldı. Böylelikle dizinin 
 başlangıç adresini ifade eden “film” değişkenini f tipi bir pointer’a atayıp pointer 
-aritmetiğinden yararlandık. İlk döngünün sonunda getchar fonksiyonunu kullanmamızın nedeni, kullanıcının film yapım 
-tarihini yazdıktan sonra enter’a tıkladığında fgets’in bunu bir veri olarak algılaması ve 
+aritmetiğinden yararlandık. İlk döngünün sonunda getchar fonksiyonunu kullanmamızın nedeni, kullanıcının film
+yapım tarihini yazdıktan sonra enter’a tıkladığında fgets’in bunu bir veri olarak algılaması ve 
 fonksiyondaki talimatları sonlandırmasıdır. Bu da birincisi hariç diğer filmlerin isimlerini giremememize neden 
 olur. Enter’ı kullandığımızda “\n” verisi getchar tarafından algılanacak ve böylelikle fgets 
 ile kullanıcıdan film ismi alınabilecek. İkinci döngüden önce birinci döngüde değerini arttırdığımız için ptr’ye 
 dizinin başlangıç adresini tekrar atadık. 
 
- ![27](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/290b20d8-6d66-43e9-ba63-affd280f2ece)
+```console
+----- 1. Film -----
+Filmin adi: The Dark Knight
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): 1
+Filmin imdb puani: 9
+Filmin yapim yili: 2008
+
+----- 2. Film -----
+Filmin adi: IT
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): 5
+Filmin imdb puani: 7.3
+Filmin yapim yili: 2017
+
+----- 3. Film -----
+Filmin adi: Prometheus
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): 2
+Filmin imdb puani: 7
+Filmin yapim yili: 2012
+
+----- 4. Film -----
+Filmin adi: Joker
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): 4
+Filmin imdb puani: 8.4
+Filmin yapim yili: 2019
+
+----- 5. Film -----
+Filmin adi:Yes Man
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): 6
+Filmin imdb puani: 6.8
+Filmin yapim yili: 2008
+
+----- 1. Film -----
+Filmin adi: The Dark Knight
+Filmin Turu:Aksiyon
+Filmin imdb puani: 9.0
+Filmin yapim yili: 2008
+
+----- 2. Film -----
+Filmin adi: IT
+Filmin Turu:Korku
+Filmin imdb puani: 7.3
+Filmin yapim yili: 2017
+
+----- 3. Film -----
+Filmin adi: Prometheus
+Filmin Turu:Bilim Kurgu
+Filmin imdb puani: 7
+Filmin yapim yili: 2012
+
+----- 4. Film -----
+Filmin adi: Joker
+Filmin Turu:Dram
+Filmin imdb puani: 8.4
+Filmin yapim yili: 2019
+
+----- 5. Film -----
+Filmin adi:Yes Man
+Filmin Turu:Komedi
+Filmin imdb puani: 6.8
+Filmin yapim yili: 2008
+```
 
 Fark ettiyseniz alt satıra geçmek için kullandığımız “\n” karakterini 38. satırda kullanmamamıza rağmen her bir 
 film adı ekrana yazdırıldıktan sonra bir satır altta yazdırma işlemi devam etmiş. Bunun nedeni,
@@ -812,7 +1078,70 @@ karakteri “\n” olur.
  
 Şimdi de dinamik bellek tahsisiyle kaç filmin bilgisi girileceğini kullanıcıya soralım. 
  
-![28](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4ecf83ee-57c4-49eb-81aa-f71f805152f4)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef enum filmturu{Aksiyon=1, BilimKurgu, Gerilim, Dram, Korku, Komedi}ft;
+
+typedef struct film{
+    char filmadi[30];
+    ft tur;
+    float imdb;
+    int yapimyili;
+}f;
+
+void printtur(ft);
+
+int main()
+{
+    int size;
+    printf("Girilecek film sayisi: ");
+    scanf("%d",&size);
+    getchar();
+
+    f* ptr=(f*)malloc(sizeof(f)*size);
+
+    for(int i=0;i<size;i++,ptr++){
+        printf("----- %d. Film -----\n",i+1);
+        printf("Filmin adi: ");
+        fgets(ptr->filmadi,sizeof(ptr->filmadi),stdin);
+        printf("Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): ");
+        scanf("%d",&ptr->tur);
+        printf("Filmin imdb puani: ");
+        scanf("%f",&ptr->imdb);
+        printf("Filmin yapim yili: ");
+        scanf("%d",&ptr->yapimyili);
+        printf("\n");
+        getchar();
+    }
+    ptr-=size;
+    for(int i=0;i<size;i++,ptr++){
+        printf("----- %d. Film -----\n",i+1);
+        printf("Filmin adi: %s",ptr->filmadi);
+        printf("Filmin Turu:");
+        printtur(ptr->tur);
+        printf("Filmin imdb puani: %.1f\n",ptr->imdb);
+        printf("Filmin yapim yili: %d\n\n",ptr->yapimyili);
+    }
+
+    return 0;
+}
+
+void printtur(ft tur){
+    switch(tur){
+        case 1:printf("Aksiyon");break;
+        case 2:printf("Bilim Kurgu");break;
+        case 3:printf("Gerilim");break;
+        case 4:printf("Dram");break;
+        case 5:printf("Korku");break;
+        case 6:printf("Komedi");break;
+        default:printf("Tanimsiz"); break;
+    }
+    printf("\n");
+}
+```
 
 Önceki dinamik bellek tahsisi uygulamalarımızdan hatırlarsanız öncelikle kullanıcıdan kaç bellek bloğu ayırmak 
 istediğini öğreniyoruz. (Girilen değer)x(struct’ımızın boyutu) kadar bloğu ptr için ayırıyoruz.
@@ -829,7 +1158,7 @@ Herhangi bir veriyi dosyaya kaydetmek, dosyadaki verileri okumak gibi dosya giri
 ihtiyaç duyarız. File pointer; dosyanın ismi, konumu, modu (“w”, “w+”, “a” gibi) ve dosyadaki
 anlık konum gibi bilgilerini depolar. Derleyicideki söz dizimi şu şekildedir: 
 
-FILE* ptr; 
+``FILE* ptr;``
 
 Burada FILE, dosya işaretçisi için önceden tanımlı olan yapının typedef ile belirlenen adıdır. Öncelikle structure 
 ve enumeration konularında olduğu gibi bu konunun da detaylarına inmemiz uygun değil.
