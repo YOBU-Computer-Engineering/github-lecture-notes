@@ -32,8 +32,20 @@ Nasıl ki temelde gördüğümüz her bir değişken bir değeri ifade eder,
 pointer da o değişkenlerin adreslerini ifade eder. Bunun daha iyi
 anlaşılması için aşağıdaki basit kodu ve tabloyu inceleyelim.
 
-![1](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/e7db5d80-f872-48eb-9aff-fd4c3df41690)
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
+int main()
+{
+    int number=42;
+    int* nPtr;
+    nPtr=&number;
+    printf("nPtr's address: %x \n",&nPtr);
+    printf("address pointed to by nPtr: %x \ncontent of address: %d \n",nPtr,*nPtr);
+    return 0;
+}
+```
 
 Burada 42 sayısını atadığımız number değişkeninin adresine işaret edecek
 bir pointer tanımlandığını görüyoruz. Tanımlama için öncelikle
@@ -45,7 +57,11 @@ number değişkenin adres değeridir. Ampersand (&), isminin başına geldiği
 değişkenin adresini belirtir. nPtr isimli pointer’a, number’ın adresini
 atadığımıza göre printf ile ekrana çıktı gönderebiliriz:
 
-![2](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/6ff80561-ff65-4b66-8b18-fc7391b538e4)
+```console
+nPtr's address: 61fe10
+address pointed to by nPtr: 61fe1c
+content of address: 42
+```
 
 Gördüğümüz üzere nPtr pointer’ının bulunduğu adres, işaret ettiği adres
 ve o adresin içeriğindeki değeri ekrana bastırdık. Evet, pointer da
@@ -69,26 +85,81 @@ değişkenlerin değerini değiştiremez. Değişkenleri klonlayıp kopyaları
 olmaz. Örnek olarak bir sayının faktöriyelini hesaplayan koda
 bakalım.
 
-![4](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/6715d7ad-df88-4452-9dd1-c9818ac6e3d1)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int fact(int);
+
+int main()
+{
+    int number=4;
+    printf("number value before function runs: %d\n",number);
+    int result=fact(number);
+    printf("%d \n", result);
+    printf("number value after function runs: %d\n", number);
+    return 0;
+}
+
+int fact(int a){
+    int p=a;
+    for(int i=1;i<p;i++){
+        a*=i;
+    }
+    return a;
+}
+```
 
 number değişkeninin bir kopyası fonksiyonda parametre olarak kullanıldı.
 Görüldüğü üzere fonksiyon içindeki komutlar, verilen parametrenin
 değerini değiştiriyor. Ama number değişkeni üzerinde hiçbir etkisi
 olmuyor. Kodumuzu çalıştırıp sonucun nasıl olacağını birlikte görelim:
 
-![5](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/873422ef-7d90-47c1-80d9-82fb1b7d34ee)
+```console
+number value before function runs: 4
+24
+number value after function runs: 4
+```
+
 
 Evet, number değişkeni üzerinde hiçbir değişiklik yok. Peki ya
 değişkenin adresini kopyalayıp parametre olarak kullansaydık? İşte bu,
 doğrudan adresin içindeki bağımsız değişkene erişmemize olanak tanır.
 Aynı kod üzerinde oynamalar yapalım:
 
-![6](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/78316d34-ae63-4174-8578-a2aac478b383)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int fact(int*);
+
+int main()
+{
+    int number=4;
+    printf("number value before function runs: %d\n",number);
+    int result=fact(&number);
+    printf("result: %d\n",result);
+    printf("number value after function runs: %d\n",number);
+    return 0;
+}
+
+int fact(int* a) {
+    int p= *a;
+    for(int i=1;i<p;i++){
+        *a *=i;
+    }
+    return *a;
+}
+```
 
 Gördüğünüz gibi buradaki fark, number’ın adres değerinin kopyasının
 fonksiyondaki pointer’a atanmasıdır.
 
-![7](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/6e43e432-8b52-43d9-8983-3ca719598a13)
+```console
+number value before function runs: 4
+result: 24
+number value after function runs: 24
+```
 
 Kodumuzu çalıştırdığımızda number değerinin değiştiğini fark ediyoruz.
 Call by value ile call by reference arasındaki bu farkın nedeni, birden
@@ -103,7 +174,19 @@ dört değer tutan dizinin bellekte kapladığı alan 4xsizeof(double) = 32
 byte olacaktır. Pointer ve dizinin belli başlı ortak yönleri vardır.
 Beraber inceleyelim.
 
-![8](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/303e4b7d-e401-4673-8492-53fbf7a56079)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int arr2[6]={1,2,3,4,5,6};
+    int a=(*arr2==arr2[0]);
+    printf("%d\n",a);
+    printf("%x",arr2);
+    return 0;
+}
+```
 
 Diziyi tanımladıktan sonra dizinin ismi olan arr2, bir adresi ifade
 eder. Yukarıdaki a değişkenine atadığımız basit mantıksal işleme bakacak
@@ -113,8 +196,10 @@ içeriğini ifade eden \*arr2 ile arr2\[0\], aynı değeri ifade eder. Son
 olarak arr2’nin tuttuğu adres değeri hexadecimal biçimde ekrana
 yazdırılır. Ekran çıktısı:
 
-![33](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/b62fceb6-18c3-4c71-bef9-562cf1e22660)
-
+```console
+1
+61fe00
+```
 
 Bir de pointer aritmetiğine göz atalım. Hatırlarsanız, pointer’ın veri
 tipinin bu hususta önemli olduğunu belirtmiştim. Evet, başlarda da
@@ -132,8 +217,21 @@ adresine işaret eden pointer, int cinsinde tanımlı. Bu da birim artış
 değerini int boyutuna çeviriyor. Aşağıdaki kod ve tabloyla daha iyi
 anlaşılacak:
 
-![555](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/3b4d50ba-b115-44d8-9cbf-ccd184c45309)
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
+int main()
+{
+    int arr2[6]={1,2,3,4,5,6};
+    int* aPtr=arr2;
+    for(int i=0;i<6 ;i++){
+            printf("address of arr2[%d]: %x\n",i,aPtr+i);
+            printf("value of arr2[%d]: %d\n\n",i,*(aPtr+i));
+    }
+    return 0;
+}
+```
 
 Dizinin ilk elemanının adresini belirten arr2’yi, aPtr isimli pointer’a
 atadık (Bu atamayı yapmadan da dizinin ilk elemanın pointerı ile
@@ -145,14 +243,32 @@ kullanabileceğimizi de hatırlatmakta fayda var) Burada her bir dizi
 elemanının adres ve değerini sırasıyla ekrana yazdıracağız. Kodumuzu
 çalıştıralım:
 
-![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/1eba6fb9-ba13-4e87-944a-79d13a954948)
+```console
+address of arr2[0]: 61fdf0
+value of arr2[0]: 1
+
+address of arr2[1]: 61fdf4
+value of arr2[1]: 2
+
+address of arr2[2]: 61fdf8
+value of arr2[2]: 3
+
+address of arr2[3]: 61fdfc
+value of arr2[3]: 4
+
+address of arr2[4]: 61fe00
+value of arr2[4]: 5
+
+address of arr2[5]: 61fe04
+value of arr2[5]: 6
+```
 
 Tablomuz yardımıyla bellekteki işlemleri gözden geçirelim:
 
 ![66](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/43602725/ac905540-9030-475d-8fe1-8fa38e110032)
 
-Evet, aPtr int türünde olduğu için “aPtr + (sayı)” ifadesi, “aPtr +
-sizeof(int) \* (sayı)” ifadesine eş değer oluyor.
+Evet, aPtr int türünde olduğu için ```aPtr + (sayı)``` ifadesi, ```aPtr +
+sizeof(int) \* (sayı)``` ifadesine eş değer oluyor.
 
 ## Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation) 
 
@@ -168,25 +284,96 @@ sorunlar ortadan kalkacaktır. Burada yapacağımız uygulamalar pointer’ın i
 dinamik bellek tahsisi gibi uzun bir konunun detaylarına inmemiz uygun değil. Farklı kaynaklardan bu konunun
 detaylarını araştırabilirsiniz. Öncelikle statik bellek tahsisi ile ilgili bahsettiğim iki durumu inceleyelim. 
 
-![1 1](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/3fad935f-9112-4d39-854d-437ad8108367)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int size;
+    int arr[]; //error: array size missing in 'arr'
+    
+    printf("Dizimiz kac elemanli olsun? -> ");
+    scanf("%d",&size);
+    for(int i=0;i<size-1;i++){
+        arr[i]=i+1;
+    }
+    for(int i=0;i<size;i++){
+        printf("arr[%d]=%d\n",i,arr[i]);
+    }
+    return 0;
+}
+```
 
 Gördüğünüz gibi bu durumda programın çalışması için öncelikle arr dizisinin uzunluğu belirtilmeli. 
 
- ![1](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4a839eab-b54f-446b-b6cf-b51ac08d2231)
+ ```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int size;
+    int arr[5];
+    
+    printf("Dizimiz kac elemanli olsun? -> ");
+    scanf("%d",&size);
+    for(int i=0;i<size-1;i++){
+        arr[i]=i+1;
+    }
+    for(int i=0;i<size;i++){
+        printf("arr[%d]=%d\n",i,arr[i]);
+    }
+    return 0;
+}
+```
 
 
 Bu sefer arr dizisinin uzunluğu kod çalıştırılmadan önce belirtildi. Bu durumda ise size’a verilen değer 5’ten
 büyükse bellek ihlali meydana gelecek. Genellikle bu tür bellek ihlallerini C derleyicileri algılamaz. O yüzden
 tahmin edilemeyecek türden sonuçlar meydana gelebilir. Programı çalıştıracak olursak: 
 
- ![2](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/ec42925e-0ba4-4df8-a7c2-2e70b63e9d58)
-
+```console
+Dizimiz kac elemanli olsun? -> 7
+arr[0]=1
+arr[1]=2
+arr[2]=3
+arr[3]=4
+arr[4]=5
+arr[5]=6
+```
 
 Görüldüğü gibi tanımladığımız dizinin uzunluğu 5 olmasına rağmen bir eleman fazla ekrana yazdırılmış. Farklı
 uzunlukta tanımlı dizilerde bu fazlalık, farklı sonuçlar verecektir. Şimdi de dinamik bellek ayırma ile ilgili
-uygulamalarımızı yapalım. 
+uygulamalarımızı yapalım.
 
- ![3](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/e0d644b8-397a-4604-8601-1e3a94fea0ab)
+```c
+ #include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int size;
+    printf("Dizinin eleman sayisini giriniz: ");
+    scanf("%d",&size);
+    int* ptarr=(int*)malloc(size*sizeof(int));
+
+    if(ptarr==NULL)
+        printf("Bellek tahsisi basarisiz.");
+
+    for(int i=0;i<size;i++){
+        ptarr[i]=2*i;
+    }
+
+    for(int i=0;i<size;i++){
+        printf("ptarr[%d] = %d\n",i,ptarr[i]);
+    }
+
+    free(ptarr);
+
+    return 0;
+}
+```
 
 
 Bu programda ben dinamik bellek tahsisi için kullanılan dört fonksiyondan ikisi olan malloc() ve free()’yi
@@ -206,8 +393,16 @@ etmiş oluyor. Bu dizinin her bir elemanını, diğer bir deyişle bellek bloğu
 döngüsündeki komutlarla tanımlayabiliyoruz. İkinci for döngüsüyle de girilen değerleri ekrana yazdırıyoruz. Son
 olarak free(ptarr) fonksiyonu ile ptarr için ayrılan bellek bloğunu serbest bırakıyoruz. Programımızı çalıştıralım: 
 
- ![4](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/cdc225f8-16c0-42ad-8c45-1d2b4ee367ce)
-
+```console
+Dizinin eleman sayisini giriniz: 7
+ptarr[0] = 0
+ptarr[1] = 2
+ptarr[2] = 4
+ptarr[3] = 6
+ptarr[4] = 8
+ptarr[5] = 10
+ptarr[6] = 12
+```
 
 İşte dinamik bellek ayırma işlemiyle farklı boyutta verileri işlememiz mümkün. Ayrıca ilerleyen bölümlerde struct
 kullanacağımız pointer uygulamalarında da dinamik bellek ayırmanın önemine bir kez daha değinmiş olacağız. 
@@ -221,15 +416,35 @@ kullanacağımız pointer uygulamalarında da dinamik bellek ayırmanın önemin
 Fonksiyon işaretçisi, adı üstünde fonksiyona işaret eder. Kendisine fonksiyonun adresi atanan bir pointer, o
 fonksiyondaki talimatlara erişim sağlar. 
 
- ![5](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/9cb43cb3-84a2-4790-a6be-3fd3df8c7e05)
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
+void extra(int,int);
+
+int main()
+{
+    void (*funcptr)(int,int);
+    funcptr=extra;
+    funcptr(5,4);
+    printf("address: %x\n",extra);
+    return 0;
+}
+
+void extra(int a,int b){
+    int c=a-b;
+    printf("result: %d\n",c);
+}
+```
 
 Görmüş olduğumuz örnekte iki int tipinde parametreye sahip ve void tipinde extra fonksiyonu, kendisiyle özdeş bir
 fonksiyon pointer’ına atandı. Bu atama sayesinde pointer’ı kullanarak istediğimiz parametre değerleriyle extra
 fonksiyonundaki talimatlara erişebiliriz. 
 
- ![6](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4c92deb7-3ec4-433a-a915-b8db7ae26d5f)
-
+```console
+result: 1
+address: 401596
+```
 
 Kodu çalıştırdığımızda fonksiyon isminin bir adres değeri döndürdüğünü görüyoruz. Bu değer, fonksiyonun başlangıç
 adresidir. Nasıl ki bir dizinin ismi, ilk elemanının adres değerini ifade ediyordu. Fonksiyon ismi de içindeki
@@ -245,27 +460,113 @@ işaretçisi tanımlanmış olur. Pointer dönüşlü fonksiyonları da ilerleye
  
 
 Dizilere değinmişken, bir fonksiyon işaretçisini birden fazla fonksiyona sahip bir dizi şeklinde kullanabiliriz.
-Bir örnek üzerinden inceleyelim. 
+Bir örnek üzerinden inceleyelim.
 
-![9](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/192f309e-82d8-4136-9c18-dacc37fcf5c0)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+void remainder(int,int);
+void compare(int,int);
+void average(int,int);
+
+int main()
+{
+    void (*ptr[])(int,int)={remainder,compare,average};
+    int a,b,c;
+    printf("enter your action (0:remainder, 1:compare, 2:average): ");
+    scanf("%d",&c);
+    printf("enter first number: ");
+    scanf("%d",&a);
+    printf("enter second number: ");
+    scanf("%d",&b);
+    (*ptr[c])(a,b);
+    return 0;
+}
+
+void remainder(int n1,int n2){
+    int r=n1%n2;
+    printf("reminder: %d",r);
+}
+void compare(int n1,int n2){
+    if(n1>n2)
+        printf("%d is greater than %d",n1,n2);
+    else if(n1<n2)
+        printf("%d is greater than %d",n2,n1);
+    else
+        printf("both numbers are equal.");
+}
+void average(int n1,int n2){
+    float r=(float)(n1+n2)/2;
+    printf("average value: %f",r);
+}
+```
 
 Bu programda iki sayıyı karşılaştıran, ortalama değerlerini ve birinci sayının ikinci sayıya bölümünden kalanını
 veren ve bu bilgileri ekrana yazdıran üç void tipi fonksiyonu, void tipi bir fonksiyon pointer’ına görülen sırayla
 atadık. Bu sayede kullanıcıdan yapmak istediği işlemi ve kullanmak istediği iki sayıyı alıp değeri (*ptr[c])(a,b)
 ifadesiyle ekrana yazdırabiliyoruz. 
 
- ![10](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/38704592-a917-40e9-aac6-b3c82b44cb50)
-![12](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/a200fe71-19aa-423a-880b-774b4022d831)
-![11](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/8363e85e-5109-4c7a-a4ff-acb20ff31b7c) 
+```console
+enter your action (0:remainder, 1:compare, 2:average): 0
+enter first number: 8
+enter second number: 5
+reminder: 3
+```
+```console
+enter your action (0:remainder, 1:compare, 2:average): 1
+enter first number: 1
+enter second number: 1
+both numbers are equal.
+```
+```console
+enter your action (0:remainder, 1:compare, 2:average): 2
+enter first number: 33
+enter second number: 56
+average value: 44.500000
+```
 
 Yukarıdaki görseller, üç işlevin ayrı ayrı çıktılarını ifade ediyor. 
 
 Bir de fonksiyon işaretçisi sayesinde herhangi bir fonksiyonu farklı bir fonksiyonda parametre olarak
 kullanabiliyor ve sonuç olarak döndürebiliyoruz. 
- 
-![13](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/b47154f9-91b1-425a-8fd1-68e573b689a7)
-![14](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/1a78b9c4-5e20-45c1-8221-d80a5607a394)
 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+void esit();
+void esitdegil();
+void esitlikdurumu(void (*funptr)());
+int main()
+{
+    int a;
+    printf("bir rakam giriniz: ");
+    scanf("%d",&a);
+    srand(time(NULL));
+    int b=rand()%10;
+    printf("istenilen rakam: %d\n", b);
+    if(a==b)
+        esitlikdurumu(esit);
+    else
+        esitlikdurumu(esitdegil);
+
+    return 0;
+}
+void esit(){
+    printf("Tebrikler, dogru rakamý girdiniz.\n");
+}
+void esitdegil(){
+    printf("Yanlis rakam, tekrar deneyiz.\n");
+}
+void esitlikdurumu(void (*funptr)()){
+    funptr();
+}
+```
+```console
+bir rakam giriniz: 4
+istenilen rakam: 8
+Yanlis rakam, tekrar deneyiz.
+```
 Bu örnekte kullanıcının girmiş olduğu rakamın rastgele rakam barındıran b’nin değeriyle eşit olup olmadığını
 belirliyoruz. “esitlikdurumu” fonksiyonu, doğru cevap verildiğinde “esit”, yanlış cevap verildiğinde “esitdegil”
 fonksiyonunu parametre olarak alır. Bu işlem fonksiyon pointer’ı sayesinde mümkün olur. 
@@ -279,16 +580,73 @@ fonksiyonunu parametre olarak alır. Bu işlem fonksiyon pointer’ı sayesinde 
 Pointer’lar ötelenebilme özelliğine sahiptirler. Bir a değişkeninin pointer’ı a’ya işaret ettiği gibi a değişkenin
 pointer’ının pointer’ı da a değişkeninin pointer’ına işaret eder. 
 
- ![15](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/06ab06b4-99ec-4044-9c18-008bf91d940a)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a=12;
+    int* aPtr=&a;
+    int** aPtr_ptr=&aPtr;
+    int*** aPtr_ptr_ptr=&aPtr_ptr;
+
+    printf("a'nin degeri: %d\n",a);
+    printf("pointer araciligiyla a'nin degeri: %d\n",*aPtr);
+    printf("double pointer araciligiyla a'nin degeri: %d\n",**aPtr_ptr);
+    printf("triple pointer araciligiyla a'nin degeri: %d\n",***aPtr_ptr_ptr);
+
+    return 0;
+}
+```
+```console
+a'nin degeri: 12
+pointer araciligiyla a'nin degeri: 12
+double pointer araciligiyla a'nin degeri: 12
+triple pointer araciligiyla a'nin degeri: 12
+```
 
 C dilinde pointer boyutunda belli bir sınır yoktur yalnız ne kadar fazla boyutta pointer kullanırsak bir o kadar da
 programımız karmaşık ve hataya müsait olur. Biz burada örnek ve yaygın olması açısından double pointer’ları ele
 alacağız. 
 
 Double pointer’ın önemli uygulamalarından biri bellek ayırarak matris (iki boyutlu dizi) oluşturmaktır. Bir örnek
-üzerinden inceleyelim. 
+üzerinden inceleyelim.
 
-![16](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/1c1181cb-5a96-468d-ae7c-82d886134900)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int** dptr,size_1,size_2;
+    printf("Satir sayisini giriniz: ");
+    scanf("%d",&size_1);
+    printf("Sutun sayisini giriniz: ");
+    scanf("%d",&size_2);
+
+    dptr=(int**)malloc(sizeof(int*)*size_1);
+
+    for(int i=0;i<size_1;i++){
+        dptr[i]=(int*)malloc(sizeof(int)*size_2);
+    }
+
+    srand(time(NULL));
+
+    for(int i=0;i<size_1;i++){
+        for(int j=0;j<size_2;j++){
+            dptr[i][j]=rand();
+            printf("%d\t",dptr[i][j]);
+        }
+        printf("\n");
+    }
+
+    free(dptr);
+
+    return 0;
+}
+```
 
 Burada size_1 dizimizin satır sayısını, size_2 ise sütun sayısını ifade ediyor. malloc() fonksiyonunu kullanarak
 öncelikle satır sayısı kadar her bir sütundaki elemanlara işaret edecek pointer’ı, dptr ismindeki double pointer
@@ -300,7 +658,14 @@ for döngüsü yardımıyla her bir matris (iki boyutlu dizi) elemanına sıras�
 dinamik bellek ayırma sürecinde asla unutmamamız gerek fonksiyon olan free() ile dptr için ayrılan bellek
 bloklarını serbest bıraktık. Programı çalıştırırsak: 
 
-![17](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/0ffdaa51-db95-4b20-a66c-9f8d7e07faae)
+```console
+Satir sayisini giriniz: 4
+Sutun sayisini giriniz: 4
+17079   10313   1861    23535
+26371   20669   16417   17388
+31631   8396    19733   13036
+17732   30416   19430   25895
+```
 
 Bu bellek ayırma işlemini char tipi bir iki boyutlu dizi için de yapabilir ve istediğimiz uzunlukta cümleler
 oluşturabiliriz. 
@@ -308,8 +673,54 @@ oluşturabiliriz.
 Bir diğer önemli uygulamalarından biri de call by reference’dır. Call by reference, önceden de tanımladığımız gibi,
 fonksiyon aracılığıyla bir değişkenin içeriğini değiştirmek için adresini parametre olarak kullanmaktır. 
 
-![18](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/cd763e01-d28a-4e4f-aef6-35e0f18acd69)
- ![19](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/60b227d8-adeb-4ed9-81fb-67ab6cf5d9a2)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+void degisim(int**,int**);
+
+int main() {
+    int c=3;
+    int d=7;
+    int *cPtr=&c;
+    int *dPtr=&d;
+
+    printf("cPtr degiskenin\nilk tuttugu adres: %x\nadresin icerigi: %d\n\n",cPtr,*cPtr);
+    printf("dPtr degiskenin\nilk tuttugu adres: %x\nadresin icerigi: %d\n\n",dPtr,*dPtr);
+
+    degisim(&cPtr,&dPtr);
+
+    printf("cPtr degiskenin\nson tuttugu adres: %x\nadresin icerigi: %d\n\n",cPtr,*cPtr);
+    printf("dPtr degiskenin\nson tuttugu adres: %x\nadresin icerigi: %d\n\n",dPtr,*dPtr);
+
+    return 0;
+}
+
+void degisim(int**ptr1,int**ptr2){
+    int* gecici;
+    gecici=*ptr1;
+    *ptr1=*ptr2;
+    *ptr2=gecici;
+}
+```
+
+```console
+cPtr degiskenin
+ilk tuttugu adres: 61fe1c
+adresin icerigi: 3
+
+dPtr degiskenin
+ilk tuttugu adres: 61fe18
+adresin icerigi: 7
+
+cPtr degiskenin
+son tuttugu adres: 61fe18
+adresin icerigi: 7
+
+dPtr degiskenin
+son tuttugu adres: 61fe1c
+adresin icerigi: 3
+```
 
 Bu örnekte c’nin adres değerini tutan cPtr ile d’nin adres değerini tutan dPtr’nin tuttukları adres değerlerini
 değiştirdik. Bunu yapmak için degisim ismindeki void tipi ve iki double pointer parametreli fonksiyonu kullandık.
