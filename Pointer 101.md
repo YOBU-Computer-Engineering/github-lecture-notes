@@ -1166,11 +1166,22 @@ ve enumeration konularında olduğu gibi bu konunun da detaylarına inmemiz uygu
 kısaca inceleyeceğiz. 
 
 File pointer’ın işlevlerinden biri olan dosyaya veri aktarma uygulamasının basit bir örneğini inceleyelim: 
- 
-![29](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/9b766d9e-b7a1-4c7c-9c2b-b455ea13b0c8)
+```c 
+#include <stdio.h>
+#include <stdlib.h>
 
-Örnekte tanımlanan fPtr file pointer’ımız, dosya üzerinde farklı modlarla işlem yapabilmek için kullandığımız fopen 
-işlevinde belirtilen moda bağlı davranışlarda bulunur. Örneğin buradaki “w” (write) modu;
+int main()
+{
+    FILE* fPtr;
+    fPtr=fopen("merhaba.txt","w");
+    fputs("Merhaba Mars!", fPtr);
+    fclose(fPtr);
+    return 0;
+}
+```
+
+Örnekte tanımlanan fPtr file pointer’ımız, dosya üzerinde farklı modlarla işlem yapabilmek için kullandığımız 
+fopen işlevinde belirtilen moda bağlı davranışlarda bulunur. Örneğin buradaki “w” (write) modu;
 file pointer’ın eğer dosya mevcut değilse dosyayı oluşturmasına, mevcutsa dosyanın başlangıç konumundan 
 başlamasına, eğer mevcut dosyada içerik de mevcutsa yazma işleminde içeriğin üzerine yazmasına, bu
 işlem her devam ettiğinde dosyadaki konumunu ilerletmesine ve okuma işlemini yapamamasına neden olur. 
@@ -1182,28 +1193,120 @@ farklı yapabiliriz. Bunun için hedef klasörü dosyamızdan önce belirtmemiz 
 
 Pointer’ın dosya işlemlerindeki işlevini göz attığımıza göre şimdi de bir önceki konumuzda bulunan struct ve enum 
 ile ilgili dinamik bellek tahsisi uygulamamıza file pointer’ı ekleyerek girilen verileri bir
-dosyaya yazdıralım. 
+dosyaya yazdıralım.
 
- ![31](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/22ba7d56-7874-449f-8598-bfce7b60c2d1)
-![32](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/4db7b251-34f6-4879-8c50-62c929744f7a)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+typedef enum filmturu{Aksiyon=1, BilimKurgu, Gerilim, Dram, Korku, Komedi}ft;
+
+typedef struct film{
+    char filmadi[30];
+    ft tur;
+    float imdb;
+    int yapimyili;
+}f;
+
+void fprinttur(ft,FILE*);
+
+int main()
+{
+    FILE* fPtr=fopen("filmler1.txt","w");
+    int size;
+    printf("Girilecek film sayisi: ");
+    scanf("%d",&size);
+    getchar();
+
+    f* ptr=(f*)malloc(sizeof(f)*size);
+    if (ptr == NULL) {
+        printf("Bellek tahsisi yapýlamadý.\n");
+        return 1;
+    }
+
+    for(int i=0;i<size;i++,ptr++){
+        printf("----- %d. Film -----\n",i+1);
+        printf("Filmin adi: ");
+        fgets(ptr->filmadi,sizeof(ptr->filmadi),stdin);
+        printf("Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi): ");
+        scanf("%d",&ptr->tur);
+        printf("Filmin imdb puani: ");
+        scanf("%f",&ptr->imdb);
+        printf("Filmin yapim yili: ");
+        scanf("%d",&ptr->yapimyili);
+        printf("\n");
+        getchar();
+        fprintf(fPtr,"----- %d. Film -----\n",i+1);
+        fprintf(fPtr,"Filmin adi: %s",ptr->filmadi);
+        fprintf(fPtr,"Filmin Turu:");
+        fprinttur(ptr->tur,fPtr);
+        fprintf(fPtr,"Filmin imdb puani: %.1f\n",ptr->imdb);
+        fprintf(fPtr,"Filmin yapim yili: %d\n\n",ptr->yapimyili);
+        fflush(fPtr);
+    }
+
+    free(ptr);
+    fclose(fPtr);
+
+
+    return 0;
+}
+
+void fprinttur(ft tur,FILE* fileptr){
+    switch(tur){
+        case 1:fprintf(fileptr,"Aksiyon");break;
+        case 2:fprintf(fileptr,"Bilim Kurgu");break;
+        case 3:fprintf(fileptr,"Gerilim");break;
+        case 4:fprintf(fileptr,"Dram");break;
+        case 5:fprintf(fileptr,"Korku");break;
+        case 6:fprintf(fileptr,"Komedi");break;
+        default:fprintf(fileptr,"Tanimsiz"); break;
+    }
+    fprintf(fileptr,"\n");
+}
+```
 
 Burada yeni bir dosyaya verileri yazdırmak için “w” modunu kullandık. Yazdırma işlemi için de fprintf fonksiyonunu 
 kullandık. Program devam ettiği sürece hazır dosya işlemleri arabellekte tutulur. Program
 sonlanınca da işlemler diskte uygulanır. Yalnız burada free() fonksiyonu fclose()’dan önce geldiği için ayrılan 
 bellek blokları serbest bırakılır ve işlemdeki veriler kaybolur. Bu yüzden de açılan dosya boş
-olur. Tabii ki bu problem, free() fonksiyonunu fclose()’dan sonra yazmakla çözülebilir. Ama ben burada dosyanın her 
-bir film bilgisinin sırasıyla işlemleri tamamlanınca dosyaya yazdırılmasını istediğim için for döngüsünün sonunda 
-ffllush() fonksiyonunu kullandım. Böylelikle her bir for döngüsünün sonunda ara bellekteki işlemler diskteki 
-dosyaya uygulanıyor. 
+olur. Tabii ki bu problem, free() fonksiyonunu fclose()’dan sonra yazmakla çözülebilir. Ama ben burada dosyanın
+her bir film bilgisinin sırasıyla işlemleri tamamlanınca dosyaya yazdırılmasını istediğim için for döngüsünün 
+sonunda ffllush() fonksiyonunu kullandım. Böylelikle her bir for döngüsünün sonunda ara bellekteki işlemler 
+diskteki dosyaya uygulanıyor. 
 
 Konsola girilen değerler: 
 
- ![33](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/bd8c9833-ea09-41f2-acd9-3a70ac7ba96b)
+ ```c
+----- 1. Film -----
+Filmin adi: Kingsman: The Secret Service
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi):1
+Filmin imdb puani: 7.7
+Filmin yapim yili: 2014
+
+----- 2. Film -----
+Filmin adi: Oppenheimer
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi):4
+Filmin imdb puani: 8.6
+Filmin yapim yili: 2023
+
+----- 3. Film -----
+Filmin adi: Arrival
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi):2
+Filmin imdb puani: 7.9
+Filmin yapim yili: 2016
+
+----- 4. Film -----
+Filmin adi: Blade Runner 2049
+Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi):1
+Filmin imdb puani: 8
+Filmin yapim yili: 2017
+```
 
 Dosya içeriği: 
 
  ![34](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/2c61ea93-d35f-4298-bd42-767bb1b495f9)
 
 Pointer ile ilgili anlatacaklarım bu kadardı. Buraya kadar konuyla ilgili herhangi bir soru, eleştri veya katkınız
-olursa bana asbalandi@gmail.com adresinden ulaşabilirsiniz. 
+olursa bana <asbalandi@gmail.com> adresinden ulaşabilirsiniz.
