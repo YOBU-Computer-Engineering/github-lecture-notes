@@ -1278,7 +1278,7 @@ diskteki dosyaya uygulanıyor.
 
 Konsola girilen değerler: 
 
- ```c
+ ```console
 ----- 1. Film -----
 Filmin adi: Kingsman: The Secret Service
 Filmin Turu(1: Aksiyon, 2: BilimKurgu, 3: Gerilim, 4: Dram, 5: Korku, 6: Komedi):1
