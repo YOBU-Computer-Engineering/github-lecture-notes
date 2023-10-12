@@ -1158,7 +1158,7 @@ Herhangi bir veriyi dosyaya kaydetmek, dosyadaki verileri okumak gibi dosya giri
 ihtiyaç duyarız. File pointer; dosyanın ismi, konumu, modu (“w”, “w+”, “a” gibi) ve dosyadaki
 anlık konum gibi bilgilerini depolar. Derleyicideki söz dizimi şu şekildedir: 
 
-``FILE* ptr;``
+`FILE* ptr;`
 
 Burada FILE, dosya işaretçisi için önceden tanımlı olan yapının typedef ile belirlenen adıdır. Öncelikle structure 
 ve enumeration konularında olduğu gibi bu konunun da detaylarına inmemiz uygun değil.
