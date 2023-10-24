@@ -7,16 +7,15 @@ birlikte pointer ile ilgili önemli işlevleri ve o işlevleri kavramamıza
 yardımcı olacak örnekleri gözden geçireceğiz.
 
 Yazı içindeki dilediğiniz konulara buradaki başlıkların üstüne tıklayarak ulaşabilirsiniz:
-
-### [-Pointer'ın Temel İşlevi](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer%C4%B1n-temel-i%CC%87%C5%9Flevi)
-### [-Pointer ile Call by Reference (Referans ile Çağrı)](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer-ile-call-by-reference-referans-ile-%C3%A7a%C4%9Fr%C4%B1)
-### [-Pointer, Dizi ve Pointer Aritmetiği](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer-dizi-ve-pointer-aritmeti%C4%9Fi)
-### [-Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer-ile-dinamik-bellek-tahsisi-dynamic-memory-allocation)
-### [-Fonksiyon İşaretçisi (Function Pointer)](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#fonksiyon-i%CC%87%C5%9Faret%C3%A7isi-function-pointer)
-### [-Double Pointer](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#double-pointer)
-### [-Pointer Dönüşlü Fonksiyonlar](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer-d%C3%B6n%C3%BC%C5%9Fl%C3%BC-fonksiyonlar)
-### [-Pointer ile Struct ve Enum](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#pointer-ile-struct-ve-enum)
-### [-File Pointer](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/blob/main/Pointer%20101.md#file-pointer)
+<a href="#pointer%C4%B1n-temel-i%CC%87%C5%9Flevi"></br><b>-Pointer'ın Temel İşlevi</b></br></a>
+<a href="#pointer-ile-call-by-reference-referans-ile-%C3%A7a%C4%9Fr%C4%B1"><b>-Pointer ile Call by Reference (Referans ile Çağrı)</b></br></a>
+<a href="#pointer-dizi-ve-pointer-aritmeti%C4%9Fi"><b>-Pointer, Dizi ve Pointer Aritmetiği</b></br></a>
+<a href="#pointer-ile-dinamik-bellek-tahsisi-dynamic-memory-allocation"><b>-Pointer ile Dinamik Bellek Tahsisi (Dynamic Memory Allocation)</b></br></a>
+<a href="#fonksiyon-i%CC%87%C5%9Faret%C3%A7isi-function-pointer"><b>-Fonksiyon İşaretçisi (Function Pointer)</b></br></a>
+<a href="#double-pointer"><b>-Double Pointer</b></br></a>
+<a href="#pointer-d%C3%B6n%C3%BC%C5%9Fl%C3%BC-fonksiyonlar"><b>-Pointer Dönüşlü Fonksiyonlar</b></br></a>
+<a href="#pointer-ile-struct-ve-enum"><b>-Pointer ile Struct ve Enum</b></br></a>
+<a href="#file-pointer"><b>-File Pointer</b></br></a>
 
 ## Pointer'ın Temel İşlevi
   
