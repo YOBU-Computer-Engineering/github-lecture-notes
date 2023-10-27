@@ -1308,4 +1308,6 @@ Dosya içeriği:
  ![34](https://github.com/YOBU-Computer-Engineering/github-lecture-notes/assets/146577506/2c61ea93-d35f-4298-bd42-767bb1b495f9)
 
 Pointer ile ilgili anlatacaklarım bu kadardı. Buraya kadar konuyla ilgili herhangi bir soru, eleştri veya katkınız
-olursa bana <asbalandi@gmail.com> adresinden ulaşabilirsiniz.
+olursa <a href="mailto:asbalandi@gmail.com" target="blank">bana mail adresimden ulaşabilirsiniz.</a>
+<p><a href="https://www.linkedin.com/in/ahmetsalihbalandi/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" width="25px" height="25px"></a></p>
+
